@@ -1,9 +1,10 @@
-import  {useState}from "react";
+import React from "react";
 import { motion } from "framer-motion";
-
+import { useDarkMode } from "../DarkModeContext"; // Import the hook
 
 const Projects = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode } = useDarkMode(); // Use the dark mode state
+
   const projects = [
     { title: "NextGen Edu", description: "An e-learning platform with interactive features." },
     { title: "BeyondChats", description: "A chatbot system with Firebase authentication." },
@@ -11,7 +12,10 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className={`min-h-screen ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}>
+    <section
+      id="projects"
+      className={`min-h-screen ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}
+    >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -20,7 +24,7 @@ const Projects = () => {
       >
         Projects
       </motion.h2>
-      <div className="grid px-12 md:grid-cols-2  lg:grid-cols-3 gap-8">
+      <div className="grid px-12 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <motion.div
             key={index}

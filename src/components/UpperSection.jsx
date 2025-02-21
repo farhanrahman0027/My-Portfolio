@@ -2,17 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import profile from "../assets/profile pic.jpeg";
+import { useDarkMode } from "../DarkModeContext"; // Import the useDarkMode hook
 
 const UpperSection = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+  const { darkMode, setDarkMode } = useDarkMode(); // Access dark mode state and setter function
 
   // Function to scroll to the selected section
   const handleScroll = (sectionId) => {
@@ -96,7 +89,7 @@ const UpperSection = () => {
           className="mt-16 text-center"
         >
           <div className="flex flex-wrap justify-center gap-4">
-            {["About", "Projects", "Experience","Skills", "Contact"].map((item, index) => (
+            {["About", "Projects", "Experience", "Skills", "Contact"].map((item, index) => (
               <motion.button
                 key={item}
                 whileHover={{ scale: 1.05 }}

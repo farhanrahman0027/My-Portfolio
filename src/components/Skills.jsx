@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { SiReact, SiTailwindcss, SiPython, SiNodedotjs, SiHtml5, SiCss3, SiEjs, SiMongodb, SiMysql } from "react-icons/si";
 import { TbBrandJavascript } from "react-icons/tb";
 import { FaJava } from "react-icons/fa";
-
-const Skills = () => {
+import { useDarkMode } from "../DarkModeContext";
+const Skills = ({  }) => {
+  const { darkMode } = useDarkMode();
   const skills = [
     { name: "HTML", icon: <SiHtml5 className="text-orange-400" />, level: 90 },
     { name: "CSS", icon: <SiCss3 className="text-blue-400" />, level: 90 },
@@ -25,13 +26,13 @@ const Skills = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="p-10 bg-gray-100 dark:bg-gray-900"
+      className={`container mx-auto px-6 py-16 ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}
     >
       <motion.h3
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl font-bold text-[#2C3E50] mb-4 text-center mt-12"
+        className="text-4xl font-bold mb-4 text-center mt-12"
       >
         Technical Expertise
       </motion.h3>
@@ -43,7 +44,7 @@ const Skills = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md text-center"
+            className={`p-4 rounded-lg shadow-md text-center ${darkMode ? "bg-gray-800" : "bg-white"}`}
           >
             <div className="flex flex-col items-center mb-2">
               <motion.div
@@ -53,9 +54,9 @@ const Skills = () => {
               >
                 {skill.icon}
               </motion.div>
-              <span className="font-medium mt-2">{skill.name}</span>
+              <span className={`font-medium mt-2 ${darkMode ? "text-white" : "text-[#2C3E50]"}`}>{skill.name}</span>
             </div>
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div className={`w-full ${darkMode ? "bg-gray-700" : "bg-gray-200"} rounded-full h-2 overflow-hidden`}>
               <motion.div
                 initial={{ width: "0%" }}
                 animate={{ width: `${skill.level}%` }}

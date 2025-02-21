@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaBriefcase } from "react-icons/fa";
+import { useDarkMode } from "../DarkModeContext"; // Import the hook
 
 const experiences = [
   {
@@ -30,13 +31,18 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const { darkMode } = useDarkMode(); // Use the dark mode state
+
   return (
-    <section id="experience" className="container mx-auto px-6 py-16">
+    <section
+      id="experience"
+      className={`container mx-auto px-6 py-16 ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}
+    >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl font-bold text-center mb-12 text-[#2C3E50]"
+        className="text-5xl font-bold text-center mb-12"
       >
         Experience
       </motion.h2>
@@ -48,7 +54,7 @@ const Experience = () => {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
-            className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-start gap-6"
+            className="bg-white dark:bg-[#1A2238] shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-start gap-6"
           >
             {/* Icon */}
             <div className="flex items-center justify-center bg-blue-500 text-white p-4 rounded-full text-3xl">
@@ -57,7 +63,7 @@ const Experience = () => {
 
             {/* Experience Details */}
             <div>
-              <h3 className="text-2xl font-semibold text-[#2C3E50]">{exp.role}</h3>
+              <h3 className="text-2xl font-semibold">{exp.role}</h3>
               <p className="text-lg text-gray-600 dark:text-blue-400">{exp.company}</p>
               <p className="text-gray-600 dark:text-gray-300">{exp.location} | {exp.duration}</p>
               <ul className="mt-3 list-disc list-inside text-gray-700 dark:text-gray-400">
