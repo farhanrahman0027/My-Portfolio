@@ -8,13 +8,15 @@ const About = () => {
   return (
     <section
       id="about"
-      className={`min-h-screen ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}
+      className={`min-h-screen ${
+        darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"
+      }`}
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-bold text-center mb-12 py-20"
+        className="text-4xl md:text-5xl font-bold text-center mb-12 py-20 "
       >
         About Me
       </motion.h2>
@@ -22,7 +24,11 @@ const About = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
-        className="text-lg  md:text-left max-w-4xl mx-auto text-gray-600 mb-12"
+        className={`text-lg md:text-left max-w-4xl mx-auto p-6 rounded-lg shadow-lg transition-all ${
+          darkMode
+            ? "bg-[#27374D] text-[#E0E0E0]" // Dark mode: Dark background, light text
+            : "bg-[#FFFFFF] text-[#2C3E50]" // Light mode: White background, dark text
+        }`}
       >
         I'm a skilled software developer with a passion for creating innovative
         and user-friendly applications. With a strong background in computer

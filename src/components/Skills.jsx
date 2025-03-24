@@ -17,7 +17,7 @@ const Skills = ({  }) => {
     { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: 75 },
     { name: "MySQL", icon: <SiMysql className="text-gray-600" />, level: 75 },
     { name: "Java", icon: <FaJava className="text-blue-500" />, level: 75 },
-    { name: "Python", icon: <SiPython className="text-blue-500" />, level: 75 },
+    // { name: "Python", icon: <SiPython className="text-blue-500" />, level: 75 },
   ];
 
   return (

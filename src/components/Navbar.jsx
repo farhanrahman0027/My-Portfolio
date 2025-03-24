@@ -13,7 +13,7 @@ const Navbar = () => {
           alt="Logo"
           className="shadow-md rounded-full h-[10vh]"
         />
-        <h1 className="text-2xl font-bold dark:text-white transition-colors">
+        <h1 className="text-2xl font-bold  dark:text-white transition-colors">
           Welcome Here!
         </h1>
 

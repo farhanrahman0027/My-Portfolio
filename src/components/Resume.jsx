@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
-import resume from "../assets/Farhanur Rahman - Resume (6).pdf";
+import resume from "../assets/Farhan_Resume.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
 const Resume = () => {
@@ -50,7 +50,7 @@ const Resume = () => {
       {/* Download Button */}
       <motion.a
         href={resume}
-        download="Farhanur Rahman - Resume (6)"
+        download="Farhan_Resume"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-md hover:bg-blue-700"

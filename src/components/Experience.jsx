@@ -16,18 +16,6 @@ const experiences = [
       "Refined frontend development skills and delivered innovative, impactful solutions that significantly enhanced user experience.",
     ],
   },
-  {
-    id: 2,
-    role: "Software Development Intern",
-    company: "XYZ Solutions",
-    location: "Remote",
-    duration: "Sep 2023 - Jan 2024",
-    description: [
-      "Developed interactive web applications using Next.js and Tailwind CSS to improve user engagement by 30%.",
-      "Optimized performance of web pages, reducing load time by 40% through efficient coding and API integration.",
-      "Collaborated with UI/UX designers to create a seamless and visually appealing user experience.",
-    ],
-  },
 ];
 
 const Experience = () => {
@@ -36,7 +24,9 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className={`container mx-auto px-6 py-16 ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}
+      className={`container mx-auto px-6 py-16 ${
+        darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"
+      }`}
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
@@ -54,7 +44,11 @@ const Experience = () => {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
-            className="bg-white dark:bg-[#1A2238] shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-start gap-6"
+            className={`shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-start gap-6 transition-all ${
+              darkMode
+                ? "bg-[#27374D] text-[#E0E0E0]" // Dark mode: Dark background, light text
+                : "bg-[#FFFFFF] text-[#2C3E50]" // Light mode: White background, dark text
+            }`}
           >
             {/* Icon */}
             <div className="flex items-center justify-center bg-blue-500 text-white p-4 rounded-full text-3xl">
@@ -65,8 +59,14 @@ const Experience = () => {
             <div>
               <h3 className="text-2xl font-semibold">{exp.role}</h3>
               <p className="text-lg text-gray-600 dark:text-blue-400">{exp.company}</p>
-              <p className="text-gray-600 dark:text-gray-300">{exp.location} | {exp.duration}</p>
-              <ul className="mt-3 list-disc list-inside text-gray-700 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-gray-300">
+                {exp.location} | {exp.duration}
+              </p>
+              <ul
+                className={`mt-3 list-disc list-inside transition-all ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 {exp.description.map((point, i) => (
                   <motion.li
                     key={i}
