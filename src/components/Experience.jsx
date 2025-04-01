@@ -9,7 +9,7 @@ const experiences = [
     role: "Web Developer Intern",
     company: "MeitY, Govt. of India",
     location: "Hyderabad, MANUU",
-    duration: "Mar 2023 - Aug 2023",
+    duration: "Mar 2024 - June 2024",
     description: [
       "Utilized expertise in React.js, HTML5, CSS3, and JavaScript to craft dynamic, user-friendly interfaces for web applications.",
       "Designed responsive and visually appealing pages using Bootstrap, Material-UI, and SASS, ensuring cross-device and cross-browser compatibility.",
