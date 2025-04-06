@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import profile from "../assets/profile pic.jpeg";
+import profile from "../assets/profile-pic.jpeg";
 import { useDarkMode } from "../DarkModeContext"; // Import the useDarkMode hook
 
 const UpperSection = () => {
@@ -36,7 +36,7 @@ const UpperSection = () => {
               transition={{ duration: 0.5 }}
               src={profile}
               alt="Professional Headshot"
-              className="rounded-full w-64 h-64 object-cover mx-auto shadow-xl"
+              className="rounded-full w-64 h-68 object-cover mx-auto shadow-xl"
             />
           </div>
 
