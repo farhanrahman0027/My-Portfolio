@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useDarkMode } from "../DarkModeContext"; // Import the hook
 import homepage1 from "../assets/project1_homepage.png";
 import homepage2 from "../assets/project2_homepage.png";
+import homepage3 from "../assets/project3_homepage.png";
 
 const Projects = () => {
   const { darkMode } = useDarkMode(); // Use the dark mode state
@@ -34,6 +35,20 @@ const Projects = () => {
       ],
       image: homepage2, // Screenshot path
       link: "https://podcast-neon.vercel.app/" // Website link
+    },
+
+    {
+      title: "Car finder App",
+      description: "A responsive and interactive frontend web app.",
+      details: [
+        "Search cars by name or apply advanced filters to find specific models.",
+        "Save favorite cars to a wishlist for easy access and comparison.",
+        "Smooth Animations: Enhanced user experience with Framer Motion transitions and interactions.",
+        "Fetch car data dynamically from an external API or mock data source.",
+        "Optimized for mobile, tablet, and desktop screens using Tailwind CSS."
+      ],
+      image: homepage3, // Screenshot path
+      link: "https://car-finder-app-seven.vercel.app/" // Website link
     },
   ];
 
