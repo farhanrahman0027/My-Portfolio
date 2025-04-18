@@ -20,7 +20,7 @@ const Resume = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl font-bold mb-6 text-[#2C3E50] dark:text-white"
+        className="text-5xl font-bold mb-6"
       >
         Resume
       </motion.h2>
@@ -29,7 +29,7 @@ const Resume = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="text-lg max-w-3xl mx-auto mb-6 text-[#2C3E50] dark:text-white"
+        className="text-xl max-w-3xl mx-auto mb-6 font-semibold md: my-16"
       >
         Take a look at my resume to see my skills, experience, and projects in detail.
         Click below to download a copy.
@@ -66,12 +66,12 @@ const Resume = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7 }}
-        className="mt-10 max-w-3xl mx-auto text-[#2C3E50] dark:text-white"
+        className="mt-10 max-w-3xl mx-auto "
       >
-        <h3 className="text-2xl font-semibold text-left mb-3 text-[#2C3E50] dark:text-white">
+        <h3 className="text-2xl font-semibold text-left mb-3 ">
           What’s Inside?
         </h3>
-        <ul className="list-disc list-inside text-left mx-auto text-lg">
+        <ul className="list-disc list-inside text-left mx-auto text-xl">
           <li>🚀 Full-Stack Web Development Skills</li>
           <li>📌 React, Tailwind CSS, Firebase, and Node.js Experience</li>
           <li>💼 Work & Project Experience</li>

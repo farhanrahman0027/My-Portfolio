@@ -38,11 +38,11 @@ const Contact = () => {
       transition={{ duration: 0.8 }}
       className={`container text-center mx-auto px-6 py-16 ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}
     >
-      <motion.h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-8">
+      <motion.h2 className="text-4xl md:text-5xl font-bold mb-8">
         Let's Connect
       </motion.h2>
 
-      <motion.p className="text-lg dark:text-white max-w-3xl mx-auto mb-6">
+      <motion.p className="text-lg max-w-3xl mx-auto mb-6">
         Have a project in mind? Looking for a developer? Or just want to say hi? Drop me a message below, and I'll get back to you!
       </motion.p>
 
