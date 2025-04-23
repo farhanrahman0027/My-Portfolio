@@ -4,6 +4,8 @@ import { useDarkMode } from "../DarkModeContext"; // Import the hook
 import homepage1 from "../assets/project1_homepage.png";
 import homepage2 from "../assets/project2_homepage.png";
 import homepage3 from "../assets/project3_homepage.png";
+import homepage4 from "../assets/project4_homepage.png";
+
 
 const Projects = () => {
   const { darkMode } = useDarkMode(); // Use the dark mode state
@@ -17,24 +19,34 @@ const Projects = () => {
         "Live Classes & Quizzes for interactive learning and assessments",
         "Performance Analytics with dashboards and progress insights",
         "AI-Powered Learning with smart recommendations and summaries",
-        "hird-Party Integrations like Google Drive, APIs, and payments",
-        
       ],
       image: homepage1, // Screenshot path
       link: "https://nextgenedu.vercel.app/" // Website link
     },
     {
-      title: "PodVista",
+      title: "Podcastr",
       description: "A full-stack web platform for discovering and managing podcasts.",
       details: [
         "Discover and manage podcasts with an intuitive interface",
         "Adjustable playback speed for a personalized listening experience",
         "Podcast creation tools including recording, uploading, and editing features",
         "AI-powered recommendations to suggest relevant content",
-        "Auto-generated transcripts and summaries for easy content consumption"
       ],
       image: homepage2, // Screenshot path
       link: "https://podcast-neon.vercel.app/" // Website link
+    },
+
+    {
+      title: "Student-Registration Dashboard",
+      description: "A simple and responsive Student Registration System ",
+      details: [
+        "Manage course types like Group, Individual, Special",
+        "Create and organize courses such as Hindi, English, Urdu",
+        "Combine and control course offerings like Group Hindi",
+        "Register students and filter by course type",
+      ],
+      image: homepage3, // Screenshot path
+      link: "https://student-registration-amber.vercel.app/" // Website link
     },
 
     {
@@ -45,9 +57,8 @@ const Projects = () => {
         "Save favorite cars to a wishlist for easy access and comparison.",
         "Smooth Animations: Enhanced user experience with Framer Motion transitions and interactions.",
         "Fetch car data dynamically from an external API or mock data source.",
-        "Optimized for mobile, tablet, and desktop screens using Tailwind CSS."
       ],
-      image: homepage3, // Screenshot path
+      image: homepage4, // Screenshot path
       link: "https://car-finder-app-seven.vercel.app/" // Website link
     },
   ];
@@ -80,7 +91,7 @@ const Projects = () => {
                 : "bg-[#FFFFFF] text-[#2C3E50]"  // Light mode: White background, dark text
             }`}
           >
-            <h3 className="text-2xl font-semibold flex justify-center">{project.title}</h3>
+            <h3 className="text-2xl font-semibold flex justify-between h-18 items-center">{project.title}</h3>
             <p className="mt-2">{project.description}</p>
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               <img
@@ -89,6 +100,7 @@ const Projects = () => {
                 className="mt-4 w-full rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
               />
             </a>
+            <h2 className=" mt-4 text-xl font-semibold">Key Features</h2>
             <ul className="m-4 text-left list-disc ">
               {project.details.map((detail, i) => (
                 <li key={i}>{detail}</li>
