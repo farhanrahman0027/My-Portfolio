@@ -24,16 +24,16 @@ const Projects = () => {
       link: "https://nextgenedu.vercel.app/" // Website link
     },
     {
-      title: "Podcastr",
-      description: "A full-stack web platform for discovering and managing podcasts.",
+      title: "ShopHub",
+      description: "A dynamic and responsive e-commerce website",
       details: [
-        "Discover and manage podcasts with an intuitive interface",
-        "Adjustable playback speed for a personalized listening experience",
-        "Podcast creation tools including recording, uploading, and editing features",
-        "AI-powered recommendations to suggest relevant content",
+        "Built a dynamic and responsive e-commerce website using Next.js and Tailwind CSS.",
+        "Product listing and dynamic product detail pages",
+        "Enabled product filtering and search functionality.",
+        "Add to cart and remove from cart functionality",
       ],
       image: homepage2, // Screenshot path
-      link: "https://podcast-neon.vercel.app/" // Website link
+      link: "https://e-commerce-rust-six-77.vercel.app/" // Website link
     },
 
     {

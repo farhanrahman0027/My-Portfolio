@@ -29,7 +29,7 @@ const UpperSection = () => {
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Profile Image */}
-          <div className="md:w-1/2">
+          <div className="md:w-1/3">
             <motion.img
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
@@ -41,15 +41,23 @@ const UpperSection = () => {
           </div>
 
           {/* Intro Section */}
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="md:w-2/3 px-4 text-center md:text-left">
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold mb-4"
+              className="text-4xl md:text-5xl font-bold mb-4 italic"
             >
               Hi, I'm Farhanur Rahman
             </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-lg italic text-[#20B2AA] mb-4"
+            >
+              Turning Vision into Interactive Reality with Modern Web Tech.
+            </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -89,21 +97,23 @@ const UpperSection = () => {
           className="mt-16 text-center"
         >
           <div className="flex flex-wrap justify-center gap-4">
-            {["About", "Projects", "Experience", "Skills", "Contact"].map((item, index) => (
-              <motion.button
-                key={item}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full ${
-                  darkMode
-                    ? "bg-[#20B2AA] hover:bg-opacity-80"
-                    : "bg-[#34495E] text-white hover:bg-opacity-90"
-                } transition-all cursor-pointer`}
-                onClick={() => handleScroll(item.toLowerCase())} // Calls handleScroll function
-              >
-                {item}
-              </motion.button>
-            ))}
+            {["About", "Projects", "Experience", "Skills", "Contact"].map(
+              (item, index) => (
+                <motion.button
+                  key={item}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-6 py-3 rounded-full ${
+                    darkMode
+                      ? "bg-[#20B2AA] hover:bg-opacity-80"
+                      : "bg-[#34495E] text-white hover:bg-opacity-90"
+                  } transition-all cursor-pointer`}
+                  onClick={() => handleScroll(item.toLowerCase())} // Calls handleScroll function
+                >
+                  {item}
+                </motion.button>
+              )
+            )}
           </div>
         </motion.div>
       </motion.div>
