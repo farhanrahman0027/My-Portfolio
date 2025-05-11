@@ -5,6 +5,7 @@ import homepage1 from "../assets/project1_homepage.png";
 import homepage2 from "../assets/project2_homepage.png";
 import homepage3 from "../assets/project3_homepage.png";
 import homepage4 from "../assets/project4_homepage.png";
+import homepage5 from "../assets/project5_homepage.png";
 
 
 const Projects = () => {
@@ -23,6 +24,20 @@ const Projects = () => {
       image: homepage1, // Screenshot path
       link: "https://nextgenedu.vercel.app/" // Website link
     },
+
+    {
+      title: "SkyWay",
+      description: "A responsive full-stack flight booking web application ",
+      details: [
+        "Smart Flight Search: Auto-suggest for cities and airports.",
+        "Dynamic Pricing: Prices adjust based on user activity.",
+        "Wallet System: ₹50,000 virtual wallet for bookings.",
+        "PDF Tickets: Generates downloadable flight vouchers.",
+      ],
+      image: homepage2, // Screenshot path
+      link: "https://sky-way-phi.vercel.app/" // Website link
+    }, 
+
     {
       title: "ShopHub",
       description: "A dynamic and responsive e-commerce website",
@@ -32,7 +47,7 @@ const Projects = () => {
         "Enabled product filtering and search functionality.",
         "Add to cart and remove from cart functionality",
       ],
-      image: homepage2, // Screenshot path
+      image: homepage3, // Screenshot path
       link: "https://e-commerce-rust-six-77.vercel.app/" // Website link
     },
 
@@ -45,7 +60,7 @@ const Projects = () => {
         "Combine and control course offerings like Group Hindi",
         "Register students and filter by course type",
       ],
-      image: homepage3, // Screenshot path
+      image: homepage4, // Screenshot path
       link: "https://student-registration-amber.vercel.app/" // Website link
     },
 
@@ -58,7 +73,7 @@ const Projects = () => {
         "Smooth Animations: Enhanced user experience with Framer Motion transitions and interactions.",
         "Fetch car data dynamically from an external API or mock data source.",
       ],
-      image: homepage4, // Screenshot path
+      image: homepage5, // Screenshot path
       link: "https://car-finder-app-seven.vercel.app/" // Website link
     },
   ];
