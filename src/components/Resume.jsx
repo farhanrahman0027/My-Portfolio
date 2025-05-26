@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
-import resume from "../assets/Farhan's Resume.pdf";
+import resume from "../assets/Farhan_Resume_2025.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
 const Resume = () => {
