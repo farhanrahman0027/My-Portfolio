@@ -59,7 +59,7 @@ const Experience = () => {
             <div>
               <h3 className="text-2xl font-semibold">{exp.role}</h3>
               <p className="text-lg text-gray-600 dark:text-blue-400">{exp.company}</p>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-gray-400">
                 {exp.location} | {exp.duration}
               </p>
               <ul
