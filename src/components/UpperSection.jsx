@@ -14,63 +14,65 @@ const UpperSection = () => {
       section.scrollIntoView({ behavior: "smooth" }); // Smooth scrolling effect
     }
   };
+  const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
+  const childVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
   return (
     <div
-      className={`min-h-screen ${
+      className={`min-h-screen flex items-center ${
         darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"
       }`}
     >
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="container mx-auto px-4 py-16"
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Profile Image */}
-          <div className="md:w-1/3">
+          <motion.div variants={childVariants} className="md:w-1/3">
             <motion.img
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
               src={profile}
               alt="Professional Headshot"
               className="rounded-full w-64 h-68 object-cover mx-auto shadow-xl"
             />
-          </div>
+          </motion.div>
 
-          {/* Intro Section */}
-          <div className="md:w-2/3 px-4 text-center md:text-left">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold mb-4 italic"
-            >
+          {/* Text Content */}
+          <motion.div
+            variants={childVariants}
+            className="md:w-2/3 px-4 text-center md:text-left"
+          >
+            <motion.h2 className="text-4xl md:text-5xl font-bold mb-4 italic">
               Hi, I'm Farhanur Rahman
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg italic text-[#20B2AA] mb-4"
-            >
+            <motion.p className="text-lg italic text-[#20B2AA] mb-4">
               Turning Vision into Interactive Reality with Modern Web Tech.
             </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-xl mb-8"
-            >
-              A passionate Full Stack Developer specializing in building
-              exceptional digital experiences.
+            <motion.p className="text-xl mb-8">
+              Full Stack Developer blending performance with precision.
             </motion.p>
+
+            {/* Social Icons */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
+              variants={childVariants}
               className="flex gap-4 justify-center md:justify-start"
             >
               <a
@@ -86,29 +88,24 @@ const UpperSection = () => {
                 <FaLinkedin />
               </a>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Navigation Buttons for Scrolling */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="mt-16 text-center"
-        >
+        {/* Navigation Buttons */}
+        <motion.div variants={childVariants} className="mt-16 text-center">
           <div className="flex flex-wrap justify-center gap-4">
             {["About", "Projects", "Experience", "Skills", "Contact"].map(
               (item, index) => (
                 <motion.button
                   key={item}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className={`px-6 py-3 rounded-full ${
                     darkMode
                       ? "bg-[#20B2AA] hover:bg-opacity-80"
                       : "bg-[#34495E] text-white hover:bg-opacity-90"
                   } transition-all cursor-pointer`}
-                  onClick={() => handleScroll(item.toLowerCase())} // Calls handleScroll function
+                  onClick={() => handleScroll(item.toLowerCase())}
                 >
                   {item}
                 </motion.button>
@@ -118,6 +115,7 @@ const UpperSection = () => {
         </motion.div>
       </motion.div>
 
+      {/* Bottom Gradient Line */}
       <div className="fixed bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#20B2AA] to-[#FFA07A]" />
     </div>
   );
