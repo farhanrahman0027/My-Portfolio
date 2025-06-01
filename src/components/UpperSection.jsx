@@ -225,7 +225,7 @@ const UpperSection = () => {
       </div>
 
       {/* Dark mode toggle */}
-      <motion.button
+      {/* <motion.button
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
@@ -239,7 +239,7 @@ const UpperSection = () => {
         whileTap={{ scale: 0.9 }}
       >
         {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-      </motion.button>
+      </motion.button> */}
 
       <motion.div
         variants={containerVariants}
