@@ -1,123 +1,443 @@
-import React, { useState, useEffect } from "react";
-import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import {
+  FaSun,
+  FaMoon,
+  FaGithub,
+  FaLinkedin,
+  FaArrowDown,
+  FaCode,
+  FaRocket,
+  FaEnvelope,
+} from "react-icons/fa";
+import {
+  motion,
+  useAnimation,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import profile from "../assets/profile-pic.jpeg";
-import { useDarkMode } from "../DarkModeContext"; // Import the useDarkMode hook
+import { useDarkMode } from "../DarkModeContext";
 
 const UpperSection = () => {
-  const { darkMode, setDarkMode } = useDarkMode(); // Access dark mode state and setter function
+  const { darkMode, setDarkMode } = useDarkMode();
+  const controls = useAnimation();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [typedText, setTypedText] = useState("");
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+  const containerRef = useRef(null);
+  const { scrollY } = useScroll();
 
-  // Function to scroll to the selected section
+  // Subtle parallax effect
+  const y = useTransform(scrollY, [0, 500], [0, -30]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.9]);
+
+  const dynamicTexts = [
+    "Full Stack Developer",
+    "React Specialist", 
+    "UI/UX Designer",
+    "Problem Solver",
+    "Tech Innovator",
+  ];
+
+  // Professional typewriter effect
+  useEffect(() => {
+    const currentText = dynamicTexts[currentTextIndex];
+    let timeout;
+
+    if (typedText.length < currentText.length) {
+      timeout = setTimeout(() => {
+        setTypedText(currentText.slice(0, typedText.length + 1));
+      }, 100);
+    } else {
+      timeout = setTimeout(() => {
+        setTypedText("");
+        setCurrentTextIndex((prev) => (prev + 1) % dynamicTexts.length);
+      }, 2500);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [typedText, currentTextIndex]);
+
+  // Cursor animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Subtle mouse tracking
+  const handleMouseMove = useCallback((e) => {
+    if (window.innerWidth < 1024) return; // Disable on mobile/tablet
+    
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (rect) {
+      setMousePosition({
+        x: (e.clientX - rect.left - rect.width / 2) / rect.width,
+        y: (e.clientY - rect.top - rect.height / 2) / rect.height,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    controls.start("visible");
+    const container = containerRef.current;
+    if (container && window.innerWidth >= 1024) {
+      container.addEventListener("mousemove", handleMouseMove);
+      return () => container.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [controls, handleMouseMove]);
+
   const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId); // Get the section by ID
+    const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" }); // Smooth scrolling effect
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  // Professional animation variants
   const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const fadeInUp = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
         ease: "easeOut",
-        when: "beforeChildren",
-        staggerChildren: 0.2,
       },
     },
   };
 
-  const childVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  const profileVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
   };
+
+  const floatingAnimation = {
+    y: [-8, 8, -8],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  };
+
+  const name = "Farhanur Rahman";
+
   return (
-    <div
-      className={`min-h-screen flex items-center ${
-        darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"
+    <motion.div
+      ref={containerRef}
+      style={{ y, opacity }}
+      className={`min-h-screen flex items-center relative overflow-hidden transition-colors duration-500 ${
+        darkMode
+          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+          : "bg-gradient-to-br from-white via-gray-50 to-blue-50"
       }`}
     >
+      {/* Professional background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Subtle gradient orbs */}
+        <motion.div
+          className={`absolute top-1/4 left-1/4 w-72 h-72 lg:w-96 lg:h-96 rounded-full blur-3xl opacity-20 ${
+            darkMode
+              ? "bg-gradient-to-r from-blue-600 to-purple-600"
+              : "bg-gradient-to-r from-blue-400 to-purple-400"
+          }`}
+          animate={{
+            scale: [1, 1.1, 1],
+            x: mousePosition.x * 20,
+            y: mousePosition.y * 20,
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className={`absolute bottom-1/4 right-1/4 w-64 h-64 lg:w-80 lg:h-80 rounded-full blur-3xl opacity-15 ${
+            darkMode
+              ? "bg-gradient-to-r from-purple-600 to-pink-600"
+              : "bg-gradient-to-r from-purple-400 to-pink-400"
+          }`}
+          animate={{
+            scale: [1, 0.9, 1],
+            x: mousePosition.x * -15,
+            y: mousePosition.y * -15,
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Minimal floating particles */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className={`absolute w-1 h-1 rounded-full ${
+              darkMode ? "bg-blue-400" : "bg-blue-600"
+            }`}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              opacity: [0.3, 0.8, 0.3],
+              scale: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Dark mode toggle */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        onClick={() => setDarkMode(!darkMode)}
+        className={`fixed top-6 right-6 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${
+          darkMode
+            ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
+            : "bg-white text-gray-800 hover:bg-gray-100"
+        }`}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+      </motion.button>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
-        className="container mx-auto px-4 py-16"
+        animate={controls}
+        className="container mx-auto px-6 lg:px-12 py-12 relative z-10"
       >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Profile Image */}
-          <motion.div variants={childVariants} className="md:w-1/3">
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src={profile}
-              alt="Professional Headshot"
-              className="rounded-full w-64 h-68 object-cover mx-auto shadow-xl"
-            />
-          </motion.div>
-
-          {/* Text Content */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+          {/* Profile Section */}
           <motion.div
-            variants={childVariants}
-            className="md:w-2/3 px-4 text-center md:text-left"
+            variants={profileVariants}
+            className="w-full lg:w-2/5 relative order-2 lg:order-1"
           >
-            <motion.h2 className="text-4xl md:text-5xl font-bold mb-4 italic">
-              Hi, I'm Farhanur Rahman
-            </motion.h2>
-            <motion.p className="text-lg italic text-[#20B2AA] mb-4">
-              Turning Vision into Interactive Reality with Modern Web Tech.
-            </motion.p>
-            <motion.p className="text-xl mb-8">
-              Full Stack Developer blending performance with precision.
-            </motion.p>
+            <motion.div animate={floatingAnimation} className="relative">
+              <motion.img
+                src={profile}
+                alt="Farhanur Rahman - Professional Headshot"
+                className="rounded-2xl w-72 h-72 lg:w-80 lg:h-80 object-cover mx-auto shadow-2xl"
+                style={{
+                  boxShadow: darkMode 
+                    ? "0 25px 50px rgba(59, 130, 246, 0.3)"
+                    : "0 25px 50px rgba(0, 0, 0, 0.15)",
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              />
 
-            {/* Social Icons */}
-            <motion.div
-              variants={childVariants}
-              className="flex gap-4 justify-center md:justify-start"
-            >
-              <a
-                href="https://github.com/farhanrahman0027"
-                className="text-3xl hover:text-[#20B2AA] transition-colors"
+              {/* Professional accent ring */}
+              <motion.div
+                className={`absolute inset-0 rounded-2xl border-2 opacity-50 ${
+                  darkMode ? "border-blue-400" : "border-blue-600"
+                }`}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Floating icons */}
+              <motion.div
+                className="absolute -top-4 -right-4 p-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                animate={{ 
+                  y: [-5, 5, -5],
+                  rotate: [0, 10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/farhanur-rahman/"
-                className="text-3xl hover:text-[#20B2AA] transition-colors"
+                <FaCode size={16} />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -bottom-4 -left-4 p-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                animate={{ 
+                  y: [5, -5, 5],
+                  rotate: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
               >
-                <FaLinkedin />
-              </a>
+                <FaRocket size={16} />
+              </motion.div>
             </motion.div>
           </motion.div>
+
+          {/* Content Section */}
+          <div className="w-full lg:w-3/5 text-center lg:text-left order-1 lg:order-2">
+            {/* Greeting */}
+            <motion.div variants={fadeInUp} className="mb-4">
+              <span className={`text-lg font-medium ${
+                darkMode ? "text-blue-400" : "text-blue-600"
+              }`}>
+                Hello, I'm
+              </span>
+            </motion.div>
+
+            {/* Name */}
+            <motion.h1
+              variants={fadeInUp}
+              className={`text-4xl lg:text-6xl font-bold mb-6 ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
+            >
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                {name}
+              </span>
+            </motion.h1>
+
+            {/* Dynamic subtitle */}
+            <motion.div
+              variants={fadeInUp}
+              className="text-2xl lg:text-3xl font-semibold mb-6 h-12 flex items-center justify-center lg:justify-start"
+            >
+              <span className={darkMode ? "text-gray-300" : "text-gray-700"}>
+                {typedText}
+                <motion.span
+                  animate={{ opacity: showCursor ? 1 : 0 }}
+                  className="inline-block w-0.5 h-8 bg-blue-600 ml-1"
+                />
+              </span>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              variants={fadeInUp}
+              className={`text-lg lg:text-xl mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 ${
+                darkMode ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
+              Passionate about creating exceptional digital experiences through 
+              clean code, innovative design, and user-centered solutions. 
+              Let's build something amazing together.
+            </motion.p>
+
+            {/* Social Links */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex gap-6 justify-center lg:justify-start mb-12"
+            >
+              {[
+                { icon: FaGithub, href: "https://github.com/farhanrahman0027", label: "GitHub" },
+                { icon: FaLinkedin, href: "https://www.linkedin.com/in/farhanur-rahman/", label: "LinkedIn" },
+                { icon: FaEnvelope, href: "mailto:your.email@example.com", label: "Email" },
+              ].map(({ icon: Icon, href, label }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  className={`p-3 rounded-full transition-all duration-300 ${
+                    darkMode
+                      ? "bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white"
+                      : "bg-white text-gray-600 hover:bg-blue-600 hover:text-white shadow-md"
+                  }`}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label={label}
+                >
+                  <Icon size={20} />
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <motion.button
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleScroll('projects')}
+              >
+                View My Work
+              </motion.button>
+              
+              <motion.button
+                className={`px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${
+                  darkMode
+                    ? "border-2 border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400"
+                    : "border-2 border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600"
+                }`}
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleScroll('contact')}
+              >
+                Get In Touch
+              </motion.button>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <motion.div variants={childVariants} className="mt-16 text-center">
-          <div className="flex flex-wrap justify-center gap-4">
-            {["About", "Projects", "Experience", "Skills", "Contact"].map(
-              (item, index) => (
-                <motion.button
-                  key={item}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-6 py-3 rounded-full ${
-                    darkMode
-                      ? "bg-[#20B2AA] hover:bg-opacity-80"
-                      : "bg-[#34495E] text-white hover:bg-opacity-90"
-                  } transition-all cursor-pointer`}
-                  onClick={() => handleScroll(item.toLowerCase())}
-                >
-                  {item}
-                </motion.button>
-              )
-            )}
-          </div>
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className={`text-2xl cursor-pointer ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+            onClick={() => handleScroll('about')}
+          >
+            
+          </motion.div>
         </motion.div>
       </motion.div>
-
-      {/* Bottom Gradient Line */}
-      <div className="fixed bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#20B2AA] to-[#FFA07A]" />
-    </div>
+    </motion.div>
   );
 };
 
