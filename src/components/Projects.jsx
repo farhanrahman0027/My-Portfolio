@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-
+i
 import { useDarkMode } from "../DarkModeContext"; // Import the hook
 import homepage1 from "../assets/project1_homepage.png";
 import homepage2 from "../assets/project2_homepage.png";
 import homepage3 from "../assets/project3_homepage.png";
 import homepage4 from "../assets/project4_homepage.png";
 import homepage5 from "../assets/project5_homepage.png";
-const Projects = ({ darkMode = false }) => {
+import homepage6 from "../assets/project6_homepage.png";
+const Projects = () => {
+  const { darkMode } = useDarkMode();
   const [hoveredProject, setHoveredProject] = useState(null);
 
   const projects = [
@@ -29,6 +31,27 @@ const Projects = ({ darkMode = false }) => {
     },
     {
       id: 2,
+      title: "DesiCrave",
+      subtitle: "Indian Restaurant Website",
+      description: "A modern, fully-featured restaurant website providing a complete digital presence for an authentic Indian restaurant with interactive features.",
+      details: [
+        "Beautiful Homepage with hero section, featured dishes, and testimonials",
+        "Interactive Menu with category filtering and dish details",
+        "Online Reservations system with form validation",
+        "Photo Gallery with filtering and lightbox view",
+        "Customer Reviews section with rating statistics",
+        "Fully Responsive design that works on all devices",
+        "Modern UI/UX with smooth animations and transitions",
+        "SEO Optimized structure and metadata",
+      ],
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
+      image:  homepage2,
+      link: "https://desi-crave.vercel.app/", // Add actual link when available
+      category: "Frontend",
+      status: "Live"
+    },
+    {
+      id: 3,
       title: "SkyWay",
       subtitle: "Flight Booking System",
       description: "A responsive full-stack flight booking application with dynamic pricing, smart search, and integrated wallet system.",
@@ -39,13 +62,13 @@ const Projects = ({ darkMode = false }) => {
         "PDF Tickets: Generates downloadable flight vouchers",
       ],
       technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Payment Gateway"],
-      image: homepage2,
+      image: homepage3,
       link: "https://sky-way-phi.vercel.app/",
       category: "Full Stack",
       status: "Live"
     },
     {
-      id: 3,
+      id: 4,
       title: "ShopHub",
       subtitle: "E-Commerce Platform",
       description: "A dynamic and responsive e-commerce website with advanced filtering, cart management, and seamless user experience.",
@@ -56,13 +79,13 @@ const Projects = ({ darkMode = false }) => {
         "Add to cart and remove from cart functionality",
       ],
       technologies: ["Next.js", "Tailwind CSS", "Context API", "Local Storage"],
-      image: homepage3,
+      image: homepage4,
       link: "https://e-commerce-rust-six-77.vercel.app/",
       category: "Frontend",
       status: "Live"
     },
     {
-      id: 4,
+      id: 5,
       title: "Student Registration Dashboard",
       subtitle: "Management System",
       description: "A comprehensive student registration system with course management, filtering capabilities, and intuitive dashboard interface.",
@@ -73,13 +96,13 @@ const Projects = ({ darkMode = false }) => {
         "Register students and filter by course type",
       ],
       technologies: ["React", "CSS3", "JavaScript", "Local Storage"],
-      image: homepage4,
+      image: homepage5,
       link: "https://student-registration-amber.vercel.app/",
       category: "Frontend",
       status: "Live"
     },
     {
-      id: 5,
+      id: 6,
       title: "Car Finder App",
       subtitle: "Automotive Discovery",
       description: "An interactive car discovery application with advanced search, wishlist functionality, and smooth animations.",
@@ -90,7 +113,7 @@ const Projects = ({ darkMode = false }) => {
         "Fetch car data dynamically from an external API or mock data source",
       ],
       technologies: ["React", "Framer Motion", "API Integration", "Tailwind CSS"],
-      image: homepage5, 
+      image: homepage6, 
       link: "https://car-finder-app-seven.vercel.app/",
       category: "Frontend",
       status: "Live"
@@ -158,7 +181,7 @@ const Projects = ({ darkMode = false }) => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-48 object-fit transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 

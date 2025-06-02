@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useDarkMode } from "../DarkModeContext"; // Import the dark mode context
 const experiences = [
   {
     id: 1,
@@ -25,7 +25,7 @@ const experiences = [
 ];
 
 const Experience = () => {
-  const darkMode = false; // You can change this to true for dark mode or make it a prop
+ const { darkMode } = useDarkMode();
 
   // Custom icon components using SVG
   const BriefcaseIcon = () => (
