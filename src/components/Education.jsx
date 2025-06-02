@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const educationDetails = [
   {
@@ -36,9 +36,7 @@ const educationDetails = [
   },
 ];
 
-const Education = () => {
-  const darkMode = false; // You can change this to true for dark mode or make it a prop
-
+const Education = ({ darkMode = false }) => {
   // Custom icon components using SVG
   const GraduationCapIcon = () => (
     <svg className="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
@@ -119,7 +117,11 @@ const Education = () => {
                           {edu.degree}
                         </h3>
                         {edu.type === "undergraduate" && (
-                          <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 rounded-full animate-pulse">
+                          <span className={`px-3 py-1 text-xs font-medium rounded-full animate-pulse ${
+                            darkMode 
+                              ? "bg-green-900/30 text-green-400" 
+                              : "bg-green-100 text-green-800"
+                          }`}>
                             Completed
                           </span>
                         )}

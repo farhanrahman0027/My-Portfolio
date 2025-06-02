@@ -224,28 +224,13 @@ const UpperSection = () => {
         ))}
       </div>
 
-      {/* Dark mode toggle */}
-      {/* <motion.button
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        onClick={() => setDarkMode(!darkMode)}
-        className={`fixed top-6 right-6 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${
-          darkMode
-            ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
-            : "bg-white text-gray-800 hover:bg-gray-100"
-        }`}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-      </motion.button> */}
+      
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={controls}
-        className="container mx-auto px-6 lg:px-12 py-12 relative z-10"
+        className="container mx-auto px-6 lg:px-12  relative "
       >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           {/* Profile Section */}
