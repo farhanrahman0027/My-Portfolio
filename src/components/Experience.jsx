@@ -75,8 +75,10 @@ const Experience = () => {
               <BriefcaseIcon />
             </div>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-            Professional Experience
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300  ${
+            darkMode ? 'text-white' : 'text-gray-900'
+          }`}>
+            Professional <span className="text-blue-600">Experience</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-600 mx-auto rounded-full"></div>
         </div>

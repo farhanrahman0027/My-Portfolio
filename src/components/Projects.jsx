@@ -153,8 +153,10 @@ const Projects = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg">
             <RocketIcon />
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            Featured Projects
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
+            darkMode ? 'text-white' : 'text-gray-900'
+          }`}>
+            Featured <span className="text-blue-600">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full mb-6"></div>
           <p className={`text-lg max-w-2xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"}`}>

@@ -90,10 +90,10 @@ const About = () => {
     <section
       id="about"
       ref={ref}
-      className={`min-h-screen py-20 transition-colors duration-500 ${
-        darkMode
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-          : "bg-gradient-to-br from-gray-50 via-white to-blue-50"
+      className={`min-h-screen py-16 transition-colors duration-500 ${
+        darkMode 
+          ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
+          : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">

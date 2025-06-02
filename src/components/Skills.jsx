@@ -78,15 +78,17 @@ const Skills = () => {
 
   return (
     <section className={`py-16 px-6 transition-colors duration-300 ${
-      darkMode ? 'bg-gray-900' : 'bg-gray-50'
+      darkMode 
+          ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
+          : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
     }`}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className={`text-4xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
             darkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            Technical <span className="text-blue-600">Skills</span>
+            Technical <span className="text-blue-600 ">Skills</span>
           </h2>
           <p className={`max-w-2xl mx-auto animate-slide-up-delay transition-colors duration-300 ${
             darkMode ? 'text-gray-300' : 'text-gray-600'
