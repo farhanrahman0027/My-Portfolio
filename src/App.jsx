@@ -3,7 +3,6 @@ import { useDarkMode } from "./DarkModeContext";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import UpperSection from "./components/UpperSection";
 import Navbar from "./components/Navbar";
@@ -23,7 +22,7 @@ const App = () => {
       <Experience />
       <Projects />
       <Skills />
-      <Resume />
+     
       <Contact />
       {/* Other sections of the app */}
     </div>

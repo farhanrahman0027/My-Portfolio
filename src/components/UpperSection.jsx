@@ -8,6 +8,8 @@ import {
   FaCode,
   FaRocket,
   FaEnvelope,
+  FaDownload,
+  FaFileAlt,
 } from "react-icons/fa";
 import {
   motion,
@@ -17,6 +19,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import profile from "../assets/profile-pic.jpeg";
+import resume from "../assets/farhan_resume_2025.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
 const UpperSection = () => {
@@ -35,7 +38,7 @@ const UpperSection = () => {
 
   const dynamicTexts = [
     "Full Stack Developer",
-    "React Specialist", 
+    "React Specialist",
     "UI/UX Designer",
     "Problem Solver",
     "Tech Innovator",
@@ -71,7 +74,7 @@ const UpperSection = () => {
   // Subtle mouse tracking
   const handleMouseMove = useCallback((e) => {
     if (window.innerWidth < 1024) return; // Disable on mobile/tablet
-    
+
     const rect = containerRef.current?.getBoundingClientRect();
     if (rect) {
       setMousePosition({
@@ -224,13 +227,11 @@ const UpperSection = () => {
         ))}
       </div>
 
-      
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={controls}
-        className="container mx-auto px-6 lg:px-12  relative "
+        className="container mx-auto px-6 lg:px-12 relative"
       >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           {/* Profile Section */}
@@ -244,13 +245,13 @@ const UpperSection = () => {
                 alt="Farhanur Rahman - Professional Headshot"
                 className="rounded-2xl w-72 h-72 lg:w-80 lg:h-80 object-cover mx-auto shadow-2xl"
                 style={{
-                  boxShadow: darkMode 
+                  boxShadow: darkMode
                     ? "0 25px 50px rgba(59, 130, 246, 0.3)"
                     : "0 25px 50px rgba(0, 0, 0, 0.15)",
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
               />
 
@@ -266,7 +267,7 @@ const UpperSection = () => {
               {/* Floating icons */}
               <motion.div
                 className="absolute -top-4 -right-4 p-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                animate={{ 
+                animate={{
                   y: [-5, 5, -5],
                   rotate: [0, 10, 0],
                 }}
@@ -278,10 +279,10 @@ const UpperSection = () => {
               >
                 <FaCode size={16} />
               </motion.div>
-              
+
               <motion.div
                 className="absolute -bottom-4 -left-4 p-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
-                animate={{ 
+                animate={{
                   y: [5, -5, 5],
                   rotate: [0, -10, 0],
                 }}
@@ -301,9 +302,11 @@ const UpperSection = () => {
           <div className="w-full lg:w-3/5 text-center lg:text-left order-1 lg:order-2">
             {/* Greeting */}
             <motion.div variants={fadeInUp} className="mb-4">
-              <span className={`text-lg font-medium ${
-                darkMode ? "text-blue-400" : "text-blue-600"
-              }`}>
+              <span
+                className={`text-lg font-medium ${
+                  darkMode ? "text-blue-400" : "text-blue-600"
+                }`}
+              >
                 Hello, I'm
               </span>
             </motion.div>
@@ -341,20 +344,33 @@ const UpperSection = () => {
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              Passionate about creating exceptional digital experiences through 
-              clean code, innovative design, and user-centered solutions. 
-              Let's build something amazing together.
+              Passionate about creating exceptional digital experiences through
+              clean code, innovative design, and user-centered solutions. Let's
+              build something amazing together.
             </motion.p>
 
-            {/* Social Links */}
+            {/* Social Links & Resume */}
             <motion.div
               variants={fadeInUp}
-              className="flex gap-6 justify-center lg:justify-start mb-12"
+              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
             >
+              {/* Social Media Icons */}
               {[
-                { icon: FaGithub, href: "https://github.com/farhanrahman0027", label: "GitHub" },
-                { icon: FaLinkedin, href: "https://www.linkedin.com/in/farhanur-rahman/", label: "LinkedIn" },
-                { icon: FaEnvelope, href: "mailto:your.email@example.com", label: "Email" },
+                {
+                  icon: FaGithub,
+                  href: "https://github.com/farhanrahman0027",
+                  label: "GitHub",
+                },
+                {
+                  icon: FaLinkedin,
+                  href: "https://www.linkedin.com/in/farhanur-rahman/",
+                  label: "LinkedIn",
+                },
+                {
+                  icon: FaEnvelope,
+                  href: "mailto:your.email@example.com",
+                  label: "Email",
+                },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
@@ -371,6 +387,44 @@ const UpperSection = () => {
                   <Icon size={20} />
                 </motion.a>
               ))}
+
+              {/* Resume Button */}
+              <motion.a
+                href={resume}
+                download="Farhan_Resume"
+                className={`group flex items-center gap-2 px-4 py-3 rounded-full shadow-lg transition-all duration-300 ${
+                  darkMode
+                    ? "bg-gray-800 text-gray-300 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white border border-gray-700"
+                    : "bg-white text-gray-700 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white shadow-xl"
+                }`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <FaFileAlt size={18} />
+                </motion.div>
+                <span className="font-medium text-sm whitespace-nowrap">
+                  Resume
+                </span>
+                <motion.div
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <FaDownload size={14} />
+                </motion.div>
+              </motion.a>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -382,11 +436,11 @@ const UpperSection = () => {
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => handleScroll('projects')}
+                onClick={() => handleScroll("projects")}
               >
                 View My Work
               </motion.button>
-              
+
               <motion.button
                 className={`px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${
                   darkMode
@@ -395,7 +449,7 @@ const UpperSection = () => {
                 }`}
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => handleScroll('contact')}
+                onClick={() => handleScroll("contact")}
               >
                 Get In Touch
               </motion.button>
@@ -404,7 +458,7 @@ const UpperSection = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
@@ -418,9 +472,9 @@ const UpperSection = () => {
             }`}
             onClick={() => handleScroll('about')}
           >
-            
+            <FaArrowDown />
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </motion.div>
   );
