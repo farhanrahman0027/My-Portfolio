@@ -125,7 +125,7 @@ const Contact = () => {
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
             darkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            Let's Work <span className="text-blue-600">Together</span>
+            Let's Work <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Together</span>
           </h2>
           <p className={`text-xl max-w-3xl mx-auto leading-relaxed
           ${darkMode ? "text-gray-300" : "text-gray-600"}`}>

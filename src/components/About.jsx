@@ -107,7 +107,7 @@ const About = () => {
           <motion.div variants={itemVariants} className="text-center mb-16">
             <motion.h2
               className={`text-4xl lg:text-5xl font-bold mb-6 ${
-                darkMode ? "text-white" : "text-gray-900"
+                darkMode ? "text-white" : "text-[#333334]"
               }`}
             >
               About{" "}
