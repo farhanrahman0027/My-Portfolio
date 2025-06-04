@@ -7,7 +7,7 @@ const Navbar = () => {
   const { darkMode, toggleDarkMode } = useDarkMode(); // Use the dark mode state and toggle function
 
   return (
-    <nav className={`p-4 sticky top-0 z-10  ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-[#F4F6F7] text-[#2C3E50]"}`}>
+    <nav className={`p-4 sticky top-0 z-10 shadow-md  ${darkMode ? "bg-[#1A2238] text-[#E0E0E0]" : "bg-white text-[#2C3E50]"}`}>
       <div className="container mx-auto flex justify-between items-center">
       
       <img
