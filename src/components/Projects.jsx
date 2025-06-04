@@ -154,9 +154,9 @@ const Projects = () => {
             <RocketIcon />
           </div>
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
-            darkMode ? 'text-white' : 'text-gray-900'
+            darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
-            Featured <span className="text-blue-600">Projects</span>
+            Featured <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full mb-6"></div>
           <p className={`text-lg max-w-2xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"}`}>

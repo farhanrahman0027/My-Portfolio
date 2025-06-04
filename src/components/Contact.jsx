@@ -10,6 +10,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useDarkMode } from "../DarkModeContext";
+import { section } from "framer-motion/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -114,7 +115,8 @@ const Contact = () => {
   ];
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br py-16 px-4
+    <section id="contact" className="relative">
+      <div className={`min-h-screen bg-gradient-to-br py-16 px-4
       ${darkMode 
           ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
@@ -123,7 +125,7 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
-            darkMode ? 'text-white' : 'text-gray-900'
+            darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
             Let's Work <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Together</span>
           </h2>
@@ -413,6 +415,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

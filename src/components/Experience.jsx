@@ -76,7 +76,7 @@ const Experience = () => {
             </div>
           </div>
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300  ${
-            darkMode ? 'text-white' : 'text-[#1A2238]'
+            darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
             Professional <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Experience</span>
           </h2>

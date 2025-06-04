@@ -77,7 +77,9 @@ const Skills = () => {
   }, [activeCategory]);
 
   return (
-    <section className={`py-16 px-6 transition-colors duration-300 ${
+    <section 
+    id="skills"
+    className={`py-16 px-6 transition-colors duration-300 ${
       darkMode 
           ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
@@ -86,9 +88,9 @@ const Skills = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
-            darkMode ? 'text-white' : 'text-gray-900'
+            darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
-            Technical <span className="text-blue-600 ">Skills</span>
+            Technical <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Skills</span>
           </h2>
           <p className={`max-w-2xl mx-auto animate-slide-up-delay transition-colors duration-300 ${
             darkMode ? 'text-gray-300' : 'text-gray-600'

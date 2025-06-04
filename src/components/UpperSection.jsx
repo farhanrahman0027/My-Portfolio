@@ -72,7 +72,8 @@ const UpperSection = () => {
   };
 
   return (
-    <div
+    <section id="home" className="relative">
+      <div
       className={`min-h-screen flex items-center relative py-20 transition-colors duration-300 ${
         darkMode 
           ? "bg-gradient-to-br from-gray-900 to-gray-800 text-white" 
@@ -238,6 +239,7 @@ const UpperSection = () => {
         </div>
       </motion.div>
     </div>
+    </section>
   );
 };
 
