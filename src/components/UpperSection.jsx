@@ -72,7 +72,7 @@ const UpperSection = () => {
   };
 
   return (
-    <section id="home" className="relative">
+    <section id="home" className="relative mt-12">
       <div
       className={`min-h-screen flex items-center relative py-20 transition-colors duration-300 ${
         darkMode 

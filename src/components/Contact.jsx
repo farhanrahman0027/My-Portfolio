@@ -10,7 +10,6 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useDarkMode } from "../DarkModeContext";
-import { section } from "framer-motion/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +21,6 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
   
-  // Fixed the destructuring - should be 'darkMode' not 'DarkMode'
   const { darkMode } = useDarkMode();
   
   const handleChange = (e) => {
@@ -53,13 +51,6 @@ const Contact = () => {
     try {
       // Simulate API call - replace with your actual endpoint
       await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Simulate success (replace with actual API call)
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
 
       setStatus({
         type: "success",
@@ -116,20 +107,23 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative">
-      <div className={`min-h-screen bg-gradient-to-br py-16 px-4
+      <div className={`min-h-screen bg-gradient-to-br py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8
       ${darkMode 
           ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
       }`}>
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
+      <div className="max-w-7xl mx-auto">
+        {/* Header - Responsive Typography */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 animate-slide-up transition-colors duration-300 leading-tight ${
             darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
-            Let's Work <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Together</span>
+            Let's Work{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block sm:inline">
+              Together
+            </span>
           </h2>
-          <p className={`text-xl max-w-3xl mx-auto leading-relaxed
+          <p className={`text-base sm:text-lg md:text-xl max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2 sm:px-0
           ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
             Ready to bring your ideas to life? I'm here to help you build
             something amazing. Let's discuss your project and see how we can
@@ -137,37 +131,38 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className={`rounded-2xl p-8 shadow-lg border
+        {/* Main Content Grid - Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
+          {/* Contact Information - Left Column */}
+          <div className="space-y-4 sm:space-y-6 md:space-y-8 order-2 lg:order-1">
+            <div className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border
             ${darkMode
               ? "bg-slate-900 border-slate-800"
               : "bg-white border-gray-100"
             }`}>
-              <h2 className={`text-2xl font-semibold mb-6
+              <h2 className={`text-xl sm:text-2xl font-semibold mb-4 sm:mb-6
               ${darkMode ? "text-gray-100" : "text-gray-900"}`}>
                 Get In Touch
               </h2>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className="flex items-center space-x-4">
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center
+                    <div key={index} className="flex items-center space-x-3 sm:space-x-4">
+                      <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center
                       ${darkMode ? "bg-blue-900" : "bg-blue-100"}`}>
-                        <IconComponent className="w-5 h-5 text-blue-600" />
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                       </div>
-                      <div>
-                        <p className={`text-sm font-medium
+                      <div className="min-w-0 flex-1">
+                        <p className={`text-xs sm:text-sm font-medium
                         ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                           {item.label}
                         </p>
                         {item.href ? (
                           <a
                             href={item.href}
-                            className={`transition-colors
+                            className={`text-sm sm:text-base transition-colors break-all sm:break-normal
                             ${darkMode
                               ? "text-gray-100 hover:text-blue-400"
                               : "text-gray-900 hover:text-blue-600"
@@ -176,7 +171,9 @@ const Contact = () => {
                             {item.value}
                           </a>
                         ) : (
-                          <p className={darkMode ? "text-gray-100" : "text-gray-900"}>{item.value}</p>
+                          <p className={`text-sm sm:text-base ${darkMode ? "text-gray-100" : "text-gray-900"}`}>
+                            {item.value}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -185,13 +182,13 @@ const Contact = () => {
               </div>
 
               {/* Social Links */}
-              <div className={`mt-8 pt-8 border-t
+              <div className={`mt-6 sm:mt-8 pt-6 sm:pt-8 border-t
               ${darkMode ? "border-slate-700" : "border-gray-200"}`}>
-                <p className={`text-sm font-medium mb-4
+                <p className={`text-xs sm:text-sm font-medium mb-3 sm:mb-4
                 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                   Follow Me
                 </p>
-                <div className="flex space-x-4">
+                <div className="flex space-x-3 sm:space-x-4">
                   {socialLinks.map((social, index) => {
                     const IconComponent = social.icon;
                     return (
@@ -200,7 +197,7 @@ const Contact = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110
                         ${darkMode
                           ? "bg-slate-800 text-gray-300"
                           : "bg-gray-100 text-gray-600"
@@ -209,7 +206,7 @@ const Contact = () => {
                       `}
                         aria-label={social.label}
                       >
-                        <IconComponent className="w-5 h-5" />
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                       </a>
                     );
                   })}
@@ -218,22 +215,22 @@ const Contact = () => {
             </div>
 
             {/* Quick Response Promise */}
-            <div className={`rounded-2xl p-6 border
+            <div className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 border
             ${darkMode
               ? "bg-blue-950 border-blue-900"
               : "bg-blue-50 border-blue-100"
             }`}>
               <div className="flex items-start space-x-3">
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1
+                <div className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mt-0.5 sm:mt-1
                 ${darkMode ? "bg-blue-900" : "bg-blue-100"}`}>
-                  <Check className="w-4 h-4 text-blue-600" />
+                  <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" />
                 </div>
-                <div>
-                  <h3 className={`font-semibold mb-1
+                <div className="min-w-0 flex-1">
+                  <h3 className={`text-sm sm:text-base font-semibold mb-1
                   ${darkMode ? "text-blue-200" : "text-blue-900"}`}>
                     Quick Response Guaranteed
                   </h3>
-                  <p className={`text-sm
+                  <p className={`text-xs sm:text-sm leading-relaxed
                   ${darkMode ? "text-blue-300" : "text-blue-700"}`}>
                     I typically respond to all inquiries within 24 hours. For
                     urgent projects, feel free to call me directly.
@@ -243,20 +240,20 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form - Now with Dark Mode Support */}
-          <div className={`rounded-2xl p-8 shadow-lg border
+          {/* Contact Form - Right Column */}
+          <div className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border order-1 lg:order-2
           ${darkMode
             ? "bg-slate-900 border-slate-800"
             : "bg-white border-gray-100"
           }`}>
-            <h2 className={`text-2xl font-semibold mb-6
+            <h2 className={`text-xl sm:text-2xl font-semibold mb-4 sm:mb-6
             ${darkMode ? "text-gray-100" : "text-gray-900"}`}>
               Send a Message
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name and Email Row */}
-              <div className="grid md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              {/* Name and Email Row - Responsive Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="name"
@@ -271,12 +268,12 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base
                     ${darkMode
                       ? "bg-slate-800 border-slate-700 text-gray-100 placeholder-gray-400"
                       : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
                     }`}
-                    placeholder="farhan..."
+                    placeholder="Your name..."
                     required
                   />
                 </div>
@@ -294,12 +291,12 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base
                     ${darkMode
                       ? "bg-slate-800 border-slate-700 text-gray-100 placeholder-gray-400"
                       : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
                     }`}
-                    placeholder="farhan....@gmail.com"
+                    placeholder="your.email@gmail.com"
                     required
                   />
                 </div>
@@ -320,7 +317,7 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                  className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base
                   ${darkMode
                     ? "bg-slate-800 border-slate-700 text-gray-100 placeholder-gray-400"
                     : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
@@ -341,10 +338,10 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  rows={6}
+                  rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none
+                  className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none text-sm sm:text-base
                   ${darkMode
                     ? "bg-slate-800 border-slate-700 text-gray-100 placeholder-gray-400"
                     : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
@@ -357,7 +354,7 @@ const Contact = () => {
               {/* Status Message */}
               {status.message && (
                 <div
-                  className={`p-4 rounded-lg flex items-center space-x-3 ${
+                  className={`p-3 sm:p-4 rounded-lg flex items-start space-x-3 ${
                     status.type === "success"
                       ? darkMode
                         ? "bg-green-900 border border-green-700"
@@ -368,16 +365,16 @@ const Contact = () => {
                   }`}
                 >
                   {status.type === "success" ? (
-                    <Check className={`w-5 h-5 flex-shrink-0 ${
+                    <Check className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 ${
                       darkMode ? "text-green-400" : "text-green-600"
                     }`} />
                   ) : (
-                    <AlertCircle className={`w-5 h-5 flex-shrink-0 ${
+                    <AlertCircle className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 ${
                       darkMode ? "text-red-400" : "text-red-600"
                     }`} />
                   )}
                   <p
-                    className={`text-sm ${
+                    className={`text-xs sm:text-sm leading-relaxed ${
                       status.type === "success"
                         ? darkMode ? "text-green-200" : "text-green-800"
                         : darkMode ? "text-red-200" : "text-red-800"
@@ -392,11 +389,11 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSending}
-                className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 transform hover:scale-[1.02] disabled:scale-100
+                className={`w-full font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100 text-sm sm:text-base
                 ${darkMode
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white "
-                  : "bg-gradient-to-r from-blue-600 to-purple-600 text-white "
-                }`}
+                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+                  : "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+                } disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 {isSending ? (
                   <>

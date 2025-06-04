@@ -70,7 +70,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-all duration-300 max-w-screen ${
         darkMode 
           ? "bg-slate-900/90 text-gray-100 border-slate-700" 
           : "bg-white/90 text-gray-800 border-gray-200"
@@ -86,24 +86,27 @@ const Navbar = () => {
               className="h-12 w-12 rounded-full shadow-lg object-cover ring-2 ring-blue-500/20"
             />
             <div className="hidden sm:block">
-              <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Crafting Clean Code & Creative Solutions
+              <span className="hidden sm:inline text-sm sm:text-base font-semibold 
+                       bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
+                       bg-clip-text text-transparent
+                       animate-gradient-x">
+                Creative Mind | Code Master | Solution Seeker
               </span>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeSection === link.id
                     ? darkMode
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "bg-blue-500 text-white shadow-lg"
+                      ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
+                      : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
                     : darkMode
                     ? "text-gray-300 hover:text-white hover:bg-slate-800"
                     : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
