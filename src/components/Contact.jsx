@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 import {
   Mail,
   Phone,
@@ -36,6 +37,14 @@ const Contact = () => {
     return null;
   };
 
+  // EmailJS Configuration - Replace these with your actual values
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_qa1k4ew', // Replace with your EmailJS service ID
+    NOTIFICATION_TEMPLATE_ID: 'template_pxrovri', // Replace with your notification template ID
+    THANKYOU_TEMPLATE_ID: 'template_z0muc5f', // Replace with your thank you template ID
+    PUBLIC_KEY: 'vtqZQbySk6vjlzXbC' // Replace with your EmailJS public key
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -49,20 +58,75 @@ const Contact = () => {
     setStatus({ type: "", message: "" });
 
     try {
-      // Simulate API call - replace with your actual endpoint
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Initialize EmailJS (it's safe to call multiple times)
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+      // Prepare template parameters for notification email (to you)
+      const notificationParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        reply_to: formData.email,
+        subject: formData.subject || 'New Contact Form Message',
+        message: formData.message,
+        to_name: 'Farhan Rahman',
+        to_email: 'farhanrahman0027@gmail.com'
+      };
+
+      // Prepare template parameters for thank you email (to user)
+      const thankYouParams = {
+        to_name: formData.name,
+        to_email: formData.email,
+        reply_to: 'farhanrahman0027@gmail.com',
+        subject: formData.subject || 'New Contact Form Message',
+        from_name: 'Farhan Rahman',
+        user_email: formData.email // Alternative parameter name
+      };
+
+      // Send notification email to you
+      console.log('Sending notification email...');
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.NOTIFICATION_TEMPLATE_ID,
+        notificationParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      // Send thank you email to user
+      console.log('Sending thank you email...');
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.THANKYOU_TEMPLATE_ID,
+        thankYouParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
 
       setStatus({
         type: "success",
-        message:
-          "Thank you for your message! I'll get back to you within 24 hours.",
+        message: "Message sent successfully! Check your email for confirmation. I'll get back to you within 24 hours.",
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
+
     } catch (error) {
+      console.error('EmailJS Error Details:', error);
+      
+      let errorMessage = "Sorry, there was an error sending your message. ";
+      
+      if (error.text) {
+        // EmailJS specific error
+        errorMessage += `Error: ${error.text}`;
+      } else if (error.status === 400) {
+        errorMessage += "Please check your input and try again.";
+      } else if (error.status === 401) {
+        errorMessage += "Authentication failed. Please contact support.";
+      } else if (error.status === 402) {
+        errorMessage += "Service temporarily unavailable. Please try again later.";
+      } else {
+        errorMessage += "Please try again or contact me directly at farhanrahman0027@gmail.com";
+      }
+      
       setStatus({
         type: "error",
-        message:
-          "Sorry, there was an error sending your message. Please try again.",
+        message: errorMessage,
       });
     }
 
