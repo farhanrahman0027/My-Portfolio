@@ -109,13 +109,13 @@ const UpperSection = () => {
           {/* Profile Section */}
           <motion.div
             variants={fadeInUp}
-            className="w-full lg:w-2/5 order-2 lg:order-1"
+            className="w-full lg:w-2/5 order-2 lg:order-1 "
           >
-            <div className="relative">
+            <div className="relative ">
               <img
                 src={profile}
                 alt="Farhanur Rahman"
-                className="rounded-full w-72 h-72 lg:w-80 lg:h-80 object-cover mx-auto shadow-xl"
+                className=" p-12 rounded-full w-76 h-72 lg:w-80 lg:h-80 object-cover mx-auto shadow-lg"
               />
               
               {/* Simple floating icons */}
@@ -214,17 +214,17 @@ const UpperSection = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start "
             >
               <button
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-full shadow-lg cursor-pointer hover:shadow-xl transition-all duration-200 hover:scale-105"
                 onClick={() => handleScroll("projects")}
               >
                 View My Work
               </button>
 
               <button
-                className={`px-8 py-3 font-medium rounded-lg transition-all duration-200 hover:scale-105 ${
+                className={`px-8 py-3 font-medium rounded-full cursor-pointer transition-all duration-200 hover:scale-105 ${
                   darkMode
                     ? "border-2 border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400"
                     : "border-2 border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600"
