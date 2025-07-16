@@ -102,7 +102,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.id)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeSection === link.id
                     ? darkMode
                       ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
@@ -150,7 +150,7 @@ const Navbar = () => {
             isMobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
           }`}
         >
-          <div className={`py-4 space-y-2 rounded-lg ${
+          <div className={`py-6 space-y-2 rounded-lg px-4  scroll-auto${
             darkMode ? "bg-slate-800/50" : "bg-gray-50/50"
           }`}>
             {navLinks.map((link) => (
@@ -158,14 +158,14 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.id)}
-                className={`block px-4 py-3 rounded-md text-base font-medium transition-all duration-200 ${
+                className={`block px-4 py-3 rounded-md text-base flex justify-center font-medium transition-all duration-200 ${
                   activeSection === link.id
-                    ? darkMode
-                      ? "bg-blue-600 text-white"
-                      : "bg-blue-500 text-white"
+                   ? darkMode
+                      ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
+                      : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
                     : darkMode
-                    ? "text-gray-300 hover:text-white hover:bg-slate-700"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+                    ? "text-gray-300 hover:text-white hover:bg-slate-800"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                 }`}
               >
                 {link.name}
