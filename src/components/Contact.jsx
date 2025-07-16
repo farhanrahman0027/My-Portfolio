@@ -453,7 +453,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSending}
-                className={`w-full font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100 text-sm sm:text-base
+                className={`w-full font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-full cursor-pointer transition-all duration-200 flex items-center justify-center space-x-2 transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100 text-sm sm:text-base
                 ${darkMode
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
                   : "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
