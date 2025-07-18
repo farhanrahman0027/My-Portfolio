@@ -18,9 +18,10 @@ const App = () => {
       <UpperSection />
       <About />
       <Education />
+      <Skills />
       <Experience />
       <Projects />
-      <Skills />
+      
       <Contact />
     </div>
   );
