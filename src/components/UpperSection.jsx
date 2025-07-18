@@ -188,9 +188,10 @@ const UpperSection = () => {
                   darkMode ? "text-gray-300" : "text-gray-600"
                 }`}
               >
-                Passionate about creating exceptional digital experiences
-                through clean code and innovative design. Let's build something
-                amazing together.
+                A goal-oriented software developer with experience in building
+                web applications using modern technologies like React, Next.js,
+                and more. Seeking to leverage my technical skills to deliver
+                exceptional user experiences.
               </motion.p>
 
               {/* Social Links & Resume */}
