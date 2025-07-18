@@ -23,6 +23,30 @@ const UpperSection = () => {
     "React Specialist",
     "UI/UX Designer",
     "Problem Solver",
+    "software Developer",
+    "Tech Enthusiast",
+    "Open Source Contributor",
+    "Web Developer",
+    "JavaScript Lover",
+    "Next.js Advocate",
+    "TypeScript Developer",
+    "Node.js Backend Developer",
+    "Database Enthusiast",
+    
+    "Agile Practitioner",
+    "DevOps Enthusiast",
+    "Software Engineer",
+    "Tech Innovator",
+    "Creative Coder",
+    "Digital Creator",
+    "Tech Explorer",
+    "Tech Enthusiast",
+    "Tech Innovator",
+    "Tech Creator",
+    "Tech Visionary",
+    "Tech Leader",
+    
+
   ];
 
   // Simple typewriter effect
