@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Code2, Database, Monitor, Server, GitBranch } from "lucide-react";
 import { useDarkMode } from "../DarkModeContext"; // Assuming you have a context for dark mode
-
+import { FaHtml5, FaJava, FaPython, FaJs } from "react-icons/fa";
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [animatedSkills, setAnimatedSkills] = useState(new Set());
@@ -12,11 +12,26 @@ const Skills = () => {
       icon: <Code2 className="w-4 h-4" />,
       color: "from-purple-500 to-indigo-500",
       skills: [
-        { name: "Java", level: 75 },
-        { name: "C", level: 60 },
-        { name: "Python", level: 45 },
-        { name: "JavaScript", level: 90 },
-        { name: "TypeScript", level: 80 },
+        {
+          name: "Java",
+          level: 75,
+          icon: <FaJava className="text-orange-600" />,
+        },
+        {
+          name: "Python",
+          level: 45,
+          icon: <FaPython className="text-blue-400" />,
+        },
+        {
+          name: "JavaScript",
+          level: 90,
+          icon: <FaJs className="text-yellow-400" />,
+        },
+        {
+          name: "TypeScript",
+          level: 80,
+          icon: <FaJs className="text-blue-500" />,
+        },
       ],
     },
     Frontend: {
@@ -25,7 +40,7 @@ const Skills = () => {
       skills: [
         { name: "React", level: 85 },
         { name: "Next.js", level: 80 },
-        { name: "HTML/CSS", level: 90 },
+        { name: "HTML/CSS", level: 90, icon: FaHtml5 },
       ],
     },
     Backend: {
@@ -185,11 +200,7 @@ const Skills = () => {
                           className={`w-12 h-12 rounded-lg bg-gradient-to-r ${categoryData.color} flex items-center justify-center`}
                         >
                           {skill.icon && (
-                            <img
-                              src={skill.icon}
-                              alt={skill.name}
-                              className="w-6 h-6"
-                            />
+                            <div className="w-6 h-6 text-xl">{skill.icon}</div>
                           )}
                         </div>
                       </div>
@@ -201,11 +212,9 @@ const Skills = () => {
                             className={`p-2 rounded-lg bg-gradient-to-r ${categoryData.color} shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                           >
                             {skill.icon && (
-                              <img
-                                src={skill.icon}
-                                alt={skill.name}
-                                className="w-6 h-6"
-                              />
+                              <div className="w-6 h-6 text-xl">
+                                {skill.icon}
+                              </div>
                             )}
                           </div>
                           <div className="flex-1">
