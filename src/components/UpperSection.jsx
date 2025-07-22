@@ -8,6 +8,7 @@ import {
   FaDownload,
   FaFileAlt,
 } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import { motion } from "framer-motion";
 import profile from "../assets/profile-pic.jpeg";
 import resume from "../assets/farhan_resume_2025.pdf";
@@ -234,6 +235,11 @@ const UpperSection = () => {
                     icon: FaLinkedin,
                     href: "https://www.linkedin.com/in/farhanur-rahman/",
                     label: "LinkedIn",
+                  },
+                  {
+                    icon: SiLeetcode,
+                    href: "https://leetcode.com/u/farhan_rahman0027/",
+                    label: "Leetcode",
                   },
                   {
                     icon: FaEnvelope,
