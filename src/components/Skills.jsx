@@ -1,75 +1,81 @@
 import React, { useState, useEffect } from "react";
 import { Code2, Database, Monitor, Server, GitBranch } from "lucide-react";
 import { useDarkMode } from "../DarkModeContext"; // Assuming you have a context for dark mode
-import { FaHtml5, FaJava, FaPython, FaJs } from "react-icons/fa";
+import {
+  FaJava,
+  FaPython,
+  FaJs,
+  FaReact,
+  FaHtml5,
+  FaNodeJs,
+  FaDatabase,
+  FaGitAlt,
+  FaGithub,
+  FaBootstrap,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiFirebase,
+  SiTypescript,
+} from "react-icons/si";
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [animatedSkills, setAnimatedSkills] = useState(new Set());
   const { darkMode } = useDarkMode();
 
   const skillCategories = {
-    "Programming Languages": {
-      icon: <Code2 className="w-4 h-4" />,
-      color: "from-purple-500 to-indigo-500",
-      skills: [
-        {
-          name: "Java",
-          level: 75,
-          icon: <FaJava className="text-orange-600" />,
-        },
-        {
-          name: "Python",
-          level: 45,
-          icon: <FaPython className="text-blue-400" />,
-        },
-        {
-          name: "JavaScript",
-          level: 90,
-          icon: <FaJs className="text-yellow-400" />,
-        },
-        {
-          name: "TypeScript",
-          level: 80,
-          icon: <FaJs className="text-blue-500" />,
-        },
-      ],
-    },
-    Frontend: {
-      icon: <Monitor className="w-4 h-4" />,
-      color: "from-blue-500 to-cyan-500",
-      skills: [
-        { name: "React", level: 85 },
-        { name: "Next.js", level: 80 },
-        { name: "HTML/CSS", level: 90, icon: FaHtml5 },
-      ],
-    },
-    Backend: {
-      icon: <Server className="w-4 h-4" />,
-      color: "from-green-500 to-emerald-500",
-      skills: [
-        { name: "Node.js", level: 70 },
-        { name: "Express.js", level: 75 },
-      ],
-    },
-    Database: {
-      icon: <Database className="w-4 h-4" />,
-      color: "from-orange-500 to-red-500",
-      skills: [
-        { name: "MongoDB", level: 75 },
-        { name: "MySQL", level: 75 },
-        { name: "Firebase", level: 70 },
-      ],
-    },
-    Tools: {
-      icon: <GitBranch className="w-4 h-4" />,
-      color: "from-gray-500 to-gray-700",
-      skills: [
-        { name: "Git/GitHub", level: 80 },
-        { name: "Tailwind CSS", level: 80 },
-        { name: "Bootstrap", level: 75 },
-      ],
-    },
-  };
+  "Programming Languages": {
+    icon: <Code2 className="w-4 h-4" />,
+    color: "from-purple-500 to-indigo-500",
+    skills: [
+      { name: "Java", level: 75, icon: <FaJava className="text-orange-600" /> },
+      { name: "Python", level: 45, icon: <FaPython className="text-blue-400" /> },
+      { name: "JavaScript", level: 90, icon: <FaJs className="text-yellow-400" /> },
+      { name: "TypeScript", level: 80, icon: <SiTypescript className="text-blue-500" /> },
+    ],
+  },
+  Frontend: {
+    icon: <Monitor className="w-4 h-4" />,
+    color: "from-blue-500 to-cyan-500",
+    skills: [
+      { name: "React", level: 85, icon: <FaReact className="text-cyan-400" /> },
+      { name: "Next.js", level: 80, icon: <SiNextdotjs className="text-black" /> },
+      { name: "HTML/CSS", level: 90, icon: <FaHtml5 className="text-orange-500" /> },
+    ],
+  },
+  Backend: {
+    icon: <Server className="w-4 h-4" />,
+    color: "from-green-500 to-emerald-500",
+    skills: [
+      { name: "Node.js", level: 70, icon: <FaNodeJs className="text-gray-500" /> },
+      { name: "Express.js", level: 75, icon: <SiExpress className="text-gray-500" /> },
+    ],
+  },
+  Database: {
+    icon: <Database className="w-4 h-4" />,
+    color: "from-orange-500 to-red-500",
+    skills: [
+      { name: "MongoDB", level: 75, icon: <SiMongodb className="text-green-600" /> },
+      { name: "MySQL", level: 75, icon: <SiMysql className="text-blue-700" /> },
+      { name: "Firebase", level: 70, icon: <SiFirebase className="text-yellow-500" /> },
+    ],
+  },
+  Tools: {
+    icon: <GitBranch className="w-4 h-4" />,
+    color: "from-gray-500 to-gray-700",
+    skills: [
+      { name: "Git/GitHub", level: 80, icon: <FaGithub className="text-black" /> },
+      { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss className="text-cyan-500" /> },
+      { name: "Bootstrap", level: 75, icon: <FaBootstrap className="text-purple-600" /> },
+    ],
+  },
+};
+
+
 
   const categories = ["all", ...Object.keys(skillCategories)];
 
@@ -195,7 +201,7 @@ const Skills = () => {
                       />
 
                       {/* Skill Icon */}
-                      <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                      {/* <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
                         <div
                           className={`w-12 h-12 rounded-lg bg-gradient-to-r ${categoryData.color} flex items-center justify-center`}
                         >
@@ -203,7 +209,7 @@ const Skills = () => {
                             <div className="w-6 h-6 text-xl">{skill.icon}</div>
                           )}
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="relative p-6">
                         {/* Skill Header */}
