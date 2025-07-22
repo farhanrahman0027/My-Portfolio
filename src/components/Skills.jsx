@@ -21,6 +21,7 @@ import {
   SiMysql,
   SiFirebase,
   SiTypescript,
+  SiFigma,
 } from "react-icons/si";
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -71,6 +72,7 @@ const Skills = () => {
       { name: "Git/GitHub", level: 80, icon: <FaGithub className="text-gray-300" /> },
       { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss className="text-cyan-400" /> },
       { name: "Bootstrap", level: 75, icon: <FaBootstrap className="text-purple-500" /> },
+      { name: "Figma", level: 70, icon: <SiFigma className="text-pink-500" /> },
     ],
   },
 };
