@@ -30,50 +30,51 @@ const Skills = () => {
   const skillCategories = {
   "Programming Languages": {
     icon: <Code2 className="w-4 h-4" />,
-    color: "from-purple-500 to-indigo-500",
+    color: "from-[#2c3e50] to-[#4ca1af]",
     skills: [
-      { name: "Java", level: 75, icon: <FaJava className="text-orange-600" /> },
-      { name: "Python", level: 45, icon: <FaPython className="text-blue-400" /> },
-      { name: "JavaScript", level: 90, icon: <FaJs className="text-yellow-400" /> },
-      { name: "TypeScript", level: 80, icon: <SiTypescript className="text-blue-500" /> },
+      { name: "Java", level: 75, icon: <FaJava className="text-orange-500" /> },
+      { name: "Python", level: 45, icon: <FaPython className="text-yellow-400" /> },
+      { name: "JavaScript", level: 90, icon: <FaJs className="text-yellow-300" /> },
+      { name: "TypeScript", level: 80, icon: <SiTypescript className="text-blue-400" /> },
     ],
   },
   Frontend: {
     icon: <Monitor className="w-4 h-4" />,
-    color: "from-blue-500 to-cyan-500",
+    color: "from-[#1f4037] to-[#99f2c8]",
     skills: [
-      { name: "React", level: 85, icon: <FaReact className="text-cyan-400" /> },
-      { name: "Next.js", level: 80, icon: <SiNextdotjs className="text-black" /> },
-      { name: "HTML/CSS", level: 90, icon: <FaHtml5 className="text-orange-500" /> },
+      { name: "React", level: 85, icon: <FaReact className="text-cyan-300" /> },
+      { name: "Next.js", level: 80, icon: <SiNextdotjs className="text-white" /> },
+      { name: "HTML/CSS", level: 90, icon: <FaHtml5 className="text-orange-400" /> },
     ],
   },
   Backend: {
     icon: <Server className="w-4 h-4" />,
-    color: "from-green-500 to-emerald-500",
+    color: "from-[#0f2027] to-[#203a43]",
     skills: [
-      { name: "Node.js", level: 70, icon: <FaNodeJs className="text-gray-500" /> },
-      { name: "Express.js", level: 75, icon: <SiExpress className="text-gray-500" /> },
+      { name: "Node.js", level: 70, icon: <FaNodeJs className="text-green-400" /> },
+      { name: "Express.js", level: 75, icon: <SiExpress className="text-gray-400" /> },
     ],
   },
   Database: {
     icon: <Database className="w-4 h-4" />,
-    color: "from-orange-500 to-red-500",
+    color: "from-[#42275a] to-[#734b6d]",
     skills: [
       { name: "MongoDB", level: 75, icon: <SiMongodb className="text-green-600" /> },
-      { name: "MySQL", level: 75, icon: <SiMysql className="text-blue-700" /> },
-      { name: "Firebase", level: 70, icon: <SiFirebase className="text-yellow-500" /> },
+      { name: "MySQL", level: 75, icon: <SiMysql className="text-blue-600" /> },
+      { name: "Firebase", level: 70, icon: <SiFirebase className="text-yellow-400" /> },
     ],
   },
   Tools: {
     icon: <GitBranch className="w-4 h-4" />,
-    color: "from-gray-500 to-gray-700",
+    color: "from-[#232526] to-[#414345]",
     skills: [
-      { name: "Git/GitHub", level: 80, icon: <FaGithub className="text-black" /> },
-      { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss className="text-cyan-500" /> },
-      { name: "Bootstrap", level: 75, icon: <FaBootstrap className="text-purple-600" /> },
+      { name: "Git/GitHub", level: 80, icon: <FaGithub className="text-gray-300" /> },
+      { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss className="text-cyan-400" /> },
+      { name: "Bootstrap", level: 75, icon: <FaBootstrap className="text-purple-500" /> },
     ],
   },
 };
+
 
 
 
@@ -215,7 +216,7 @@ const Skills = () => {
                         {/* Skill Header */}
                         <div className="flex items-center gap-3 mb-4">
                           <div
-                            className={`p-2 rounded-lg bg-gradient-to-r ${categoryData.color} shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                            className={`p-2 rounded-full bg-gradient-to-r ${categoryData.color} shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                           >
                             {skill.icon && (
                               <div className="w-6 h-6 text-xl">
