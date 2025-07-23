@@ -111,12 +111,12 @@ const About = () => {
               }`}
             >
               About{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">
                 Me
               </span>
             </motion.h2>
             <motion.div
-              className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"
+              className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"
               initial={{ width: 0 }}
               animate={isInView ? { width: 96 } : { width: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -290,7 +290,7 @@ const About = () => {
                 just want to chat about technology, I'd love to hear from you.
               </p>
               <motion.button
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="px-8 py-4 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white font-semibold rounded-full cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
