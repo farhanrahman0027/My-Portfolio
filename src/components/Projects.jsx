@@ -156,9 +156,9 @@ const Projects = () => {
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
             darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
-            Featured <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
+            Featured <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full mb-6"></div>
           <p className={`text-lg max-w-2xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
             A showcase of innovative solutions and technical expertise across various domains
           </p>
@@ -330,7 +330,7 @@ const Projects = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="#contact"
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              className="px-6 py-3 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
             >
               Get In Touch
             </a>
@@ -338,8 +338,8 @@ const Projects = () => {
               href="#about"
               className={`px-6 py-3 rounded-full font-semibold border-2 transition-all duration-300 hover:scale-105 ${
                 darkMode
-                  ? "border-slate-600 text-gray-300 hover:border-purple-500 hover:text-purple-400"
-                  : "border-gray-300 text-gray-700 hover:border-purple-500 hover:text-purple-600"
+                  ? "border-slate-600 text-gray-300 hover:border-[#2c3e50] hover:text-[#4ca1af]"
+                  : "border-gray-300 text-gray-700 hover:border-[#4ca1af] hover:text-[#2c3e50]"
               }`}
             >
               Learn More
