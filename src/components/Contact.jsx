@@ -183,7 +183,7 @@ const Contact = () => {
             darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
             Let's Work{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block sm:inline">
+            <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent block sm:inline">
               Together
             </span>
           </h2>
@@ -455,8 +455,8 @@ const Contact = () => {
                 disabled={isSending}
                 className={`w-full font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-full cursor-pointer transition-all duration-200 flex items-center justify-center space-x-2 transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100 text-sm sm:text-base
                 ${darkMode
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
-                  : "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+                  ? "bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white hover:from-blue-700 hover:to-purple-700"
+                  : "bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white hover:from-blue-700 hover:to-purple-700"
                 } disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 {isSending ? (
