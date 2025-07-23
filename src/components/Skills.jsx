@@ -121,7 +121,7 @@ const Skills = () => {
             }`}
           >
             Technical{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">
               Skills
             </span>
           </h2>
@@ -140,9 +140,9 @@ const Skills = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                 activeCategory === category
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
+                  ? "bg-[#2c3e50] text-white shadow-lg "
                   : darkMode
                   ? "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700"
                   : "bg-white text-gray-700 hover:bg-gray-100 shadow-sm"

@@ -83,7 +83,7 @@ const Education = () => {
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
             darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
-            Edu<span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] `bg-clip-text text-transparent">cation</span>
+            Edu<span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">cation</span>
             
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"></div>
