@@ -87,7 +87,7 @@ const Navbar = () => {
             />
             <div className="hidden sm:block">
               <span className="hidden sm:inline text-sm sm:text-base font-semibold 
-                       bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
+                       bg-gradient-to-r from-[#2c3e50] to-[#4ca1af]
                        bg-clip-text text-transparent
                        animate-gradient-x">
                 Creative Mind | Code Master | Solution Seeker
@@ -105,8 +105,8 @@ const Navbar = () => {
                 className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeSection === link.id
                     ? darkMode
-                      ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
-                      : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg"
+                      ? "bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white shadow-lg"
+                      : "bg-gradient-to-r from-[#4ca1af] to-[#2c3e50]  text-white shadow-lg"
                     : darkMode
                     ? "text-gray-300 hover:text-white hover:bg-slate-800"
                     : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
