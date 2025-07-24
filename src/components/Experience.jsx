@@ -67,7 +67,7 @@ const Experience = () => {
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
       }`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl ">
         {/* Header Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-lg">
