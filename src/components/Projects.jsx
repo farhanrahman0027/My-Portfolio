@@ -6,6 +6,8 @@ import homepage3 from "../assets/project3_homepage.png";
 import homepage4 from "../assets/project4_homepage.png";
 import homepage5 from "../assets/project5_homepage.png";
 import homepage6 from "../assets/project6_homepage.png";
+import homepage7 from "../assets/project7_homepage.png";
+import homepage8 from "../assets/project8_homepage.png";
 const Projects = () => {
   const { darkMode } = useDarkMode();
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -13,26 +15,65 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "Madhubani Medical College",
+      subtitle: "Institutional Website",
+      description:
+        "A responsive institutional website designed for Madhubani Medical College to showcase its facilities, courses, and admissions.",
+      details: [
+        "Hero Section with video background and college introduction",
+        "Navigation through Academics, Faculty, Hospital, and Admission pages",
+        "Contact Info & Google Maps Integration",
+        "Responsive design with mobile-friendly layout",
+      ],
+      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+      image: homepage1, 
+      link: "https://mmcworld.org/", 
+      category: "Full Stack",
+      status: "Live",
+    },
+
+    {
+      id: 2,
+      title: "Madhubani Nursing & Paramedical Institute",
+      subtitle: "Educational Website",
+      description:
+        "A modern website for Madhubani Nursing & Paramedical Institute featuring admission flow, academic details, and faculty showcase.",
+      details: [
+        "Clean layout with interactive carousel and call-to-action buttons",
+        "Admission Enquiry form with contact validation",
+        "Course overview with faculty & student sections",
+        "Mobile-first responsive design",
+      ],
+      technologies: ["HTML5", "CSS3", "JavaScript", "Swiper.js"],
+      image: homepage2, 
+      link: "https://minps.org/", 
+      category: "full Stack",
+      status: "Live",
+    },
+    {
+      id: 3,
       title: "NextGen Edu",
       subtitle: "E-Learning Platform",
-      description: "A comprehensive educational platform with AI-powered learning recommendations and interactive features for modern digital education.",
+      description:
+        "A comprehensive educational platform with AI-powered learning recommendations and interactive features for modern digital education.",
       details: [
         "Course Management for creation, enrollment, and progress tracking",
-        "Live Classes & Quizzes for interactive learning and assessments", 
+        "Live Classes & Quizzes for interactive learning and assessments",
         "Performance Analytics with dashboards and progress insights",
         "AI-Powered Learning with smart recommendations and summaries",
       ],
       technologies: ["React", "Node.js", "MongoDB", "AI/ML", "WebRTC"],
-      image: homepage1,
+      image: homepage3,
       link: "https://nextgenedu.vercel.app/",
       category: "Full Stack",
-      status: "Live"
+      status: "Live",
     },
     {
-      id: 2,
+      id: 4,
       title: "DesiCrave",
       subtitle: "Indian Restaurant Website",
-      description: "A modern, fully-featured restaurant website providing a complete digital presence for an authentic Indian restaurant with interactive features.",
+      description:
+        "A modern, fully-featured restaurant website providing a complete digital presence for an authentic Indian restaurant with interactive features.",
       details: [
         "Beautiful Homepage with hero section, featured dishes, and testimonials",
         "Interactive Menu with category filtering and dish details",
@@ -43,51 +84,65 @@ const Projects = () => {
         "Modern UI/UX with smooth animations and transitions",
         "SEO Optimized structure and metadata",
       ],
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
-      image:  homepage2,
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Vite",
+      ],
+      image: homepage4,
       link: "https://desi-crave.vercel.app/", // Add actual link when available
       category: "Frontend",
-      status: "Live"
-    },
-    {
-      id: 3,
-      title: "SkyWay",
-      subtitle: "Flight Booking System",
-      description: "A responsive full-stack flight booking application with dynamic pricing, smart search, and integrated wallet system.",
-      details: [
-        "Smart Flight Search: Auto-suggest for cities and airports",
-        "Dynamic Pricing: Prices adjust based on user activity", 
-        "Wallet System: ₹50,000 virtual wallet for bookings",
-        "PDF Tickets: Generates downloadable flight vouchers",
-      ],
-      technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Payment Gateway"],
-      image: homepage3,
-      link: "https://sky-way-phi.vercel.app/",
-      category: "Full Stack",
-      status: "Live"
-    },
-    {
-      id: 4,
-      title: "ShopHub",
-      subtitle: "E-Commerce Platform",
-      description: "A dynamic and responsive e-commerce website with advanced filtering, cart management, and seamless user experience.",
-      details: [
-        "Built a dynamic and responsive e-commerce website using Next.js and Tailwind CSS",
-        "Product listing and dynamic product detail pages",
-        "Enabled product filtering and search functionality", 
-        "Add to cart and remove from cart functionality",
-      ],
-      technologies: ["Next.js", "Tailwind CSS", "Context API", "Local Storage"],
-      image: homepage4,
-      link: "https://e-commerce-rust-six-77.vercel.app/",
-      category: "Frontend",
-      status: "Live"
+      status: "Live",
     },
     {
       id: 5,
+      title: "SkyWay",
+      subtitle: "Flight Booking System",
+      description:
+        "A responsive full-stack flight booking application with dynamic pricing, smart search, and integrated wallet system.",
+      details: [
+        "Smart Flight Search: Auto-suggest for cities and airports",
+        "Dynamic Pricing: Prices adjust based on user activity",
+        "Wallet System: ₹50,000 virtual wallet for bookings",
+        "PDF Tickets: Generates downloadable flight vouchers",
+      ],
+      technologies: [
+        "Next.js",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Payment Gateway",
+      ],
+      image: homepage5,
+      link: "https://sky-way-phi.vercel.app/",
+      category: "Full Stack",
+      status: "Live",
+    },
+    {
+      id: 6,
+      title: "ShopHub",
+      subtitle: "E-Commerce Platform",
+      description:
+        "A dynamic and responsive e-commerce website with advanced filtering, cart management, and seamless user experience.",
+      details: [
+        "Built a dynamic and responsive e-commerce website using Next.js and Tailwind CSS",
+        "Product listing and dynamic product detail pages",
+        "Enabled product filtering and search functionality",
+        "Add to cart and remove from cart functionality",
+      ],
+      technologies: ["Next.js", "Tailwind CSS", "Context API", "Local Storage"],
+      image: homepage6,
+      link: "https://e-commerce-rust-six-77.vercel.app/",
+      category: "Frontend",
+      status: "Live",
+    },
+    {
+      id: 7,
       title: "Student Registration Dashboard",
       subtitle: "Management System",
-      description: "A comprehensive student registration system with course management, filtering capabilities, and intuitive dashboard interface.",
+      description:
+        "A comprehensive student registration system with course management, filtering capabilities, and intuitive dashboard interface.",
       details: [
         "Manage course types like Group, Individual, Special",
         "Create and organize courses such as Hindi, English, Urdu",
@@ -95,46 +150,62 @@ const Projects = () => {
         "Register students and filter by course type",
       ],
       technologies: ["React", "CSS3", "JavaScript", "Local Storage"],
-      image: homepage5,
+      image: homepage7,
       link: "https://student-registration-amber.vercel.app/",
       category: "Frontend",
-      status: "Live"
+      status: "Live",
     },
     {
-      id: 6,
+      id: 8,
       title: "Car Finder App",
       subtitle: "Automotive Discovery",
-      description: "An interactive car discovery application with advanced search, wishlist functionality, and smooth animations.",
+      description:
+        "An interactive car discovery application with advanced search, wishlist functionality, and smooth animations.",
       details: [
         "Search cars by name or apply advanced filters to find specific models",
         "Save favorite cars to a wishlist for easy access and comparison",
         "Smooth Animations: Enhanced user experience with Framer Motion transitions",
         "Fetch car data dynamically from an external API or mock data source",
       ],
-      technologies: ["React", "Framer Motion", "API Integration", "Tailwind CSS"],
-      image: homepage6, 
+      technologies: [
+        "React",
+        "Framer Motion",
+        "API Integration",
+        "Tailwind CSS",
+      ],
+      image: homepage8,
       link: "https://car-finder-app-seven.vercel.app/",
       category: "Frontend",
-      status: "Live"
+      status: "Live",
     },
   ];
 
   // Custom Icons
   const ExternalLinkIcon = () => (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+      />
     </svg>
   );
 
   const CodeIcon = () => (
     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"/>
+      <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z" />
     </svg>
   );
 
   const RocketIcon = () => (
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12.5 2C15.5 2 18 4.5 18 7.5c0 1.17-.33 2.27-.9 3.22L21 14.5l-2.5 2.5-3.78-3.9c-.95.57-2.05.9-3.22.9-3 0-5.5-2.5-5.5-5.5 0-1.17.33-2.27.9-3.22L2 1.5 4.5-1l3.78 3.9C9.23 2.33 10.33 2 11.5 2z"/>
+      <path d="M12.5 2C15.5 2 18 4.5 18 7.5c0 1.17-.33 2.27-.9 3.22L21 14.5l-2.5 2.5-3.78-3.9c-.95.57-2.05.9-3.22.9-3 0-5.5-2.5-5.5-5.5 0-1.17.33-2.27.9-3.22L2 1.5 4.5-1l3.78 3.9C9.23 2.33 10.33 2 11.5 2z" />
     </svg>
   );
 
@@ -142,8 +213,8 @@ const Projects = () => {
     <section
       id="projects"
       className={`px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 w-full transition-all duration-500 ${
-        darkMode 
-          ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
+        darkMode
+          ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100"
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
       }`}
     >
@@ -153,14 +224,24 @@ const Projects = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg">
             <RocketIcon />
           </div>
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
-            darkMode ? 'text-white' : 'text-[#2C3E50]'
-          }`}>
-            Featured <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">Projects</span>
+          <h2
+            className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300 ${
+              darkMode ? "text-white" : "text-[#2C3E50]"
+            }`}
+          >
+            Featured{" "}
+            <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full mb-6"></div>
-          <p className={`text-lg max-w-2xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
-            A showcase of innovative solutions and technical expertise across various domains
+          <p
+            className={`text-lg max-w-2xl mx-auto ${
+              darkMode ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            A showcase of innovative solutions and technical expertise across
+            various domains
           </p>
         </div>
 
@@ -185,23 +266,29 @@ const Projects = () => {
                   className="w-full h-48 object-fit transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 {/* Status Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                    project.status === "Live" 
-                      ? "bg-green-500 text-white" 
-                      : "bg-yellow-500 text-black"
-                  }`}>
+                  <span
+                    className={`px-3 py-1 text-xs font-semibold rounded-full ${
+                      project.status === "Live"
+                        ? "bg-green-500 text-white"
+                        : "bg-yellow-500 text-black"
+                    }`}
+                  >
                     {project.status}
                   </span>
                 </div>
 
                 {/* Category Badge */}
                 <div className="absolute top-4 right-4">
-                  <span className={`px-3 py-1 text-xs font-medium rounded-full backdrop-blur-sm ${
-                    darkMode ? "bg-slate-800/80 text-gray-200" : "bg-white/80 text-gray-700"
-                  }`}>
+                  <span
+                    className={`px-3 py-1 text-xs font-medium rounded-full backdrop-blur-sm ${
+                      darkMode
+                        ? "bg-slate-800/80 text-gray-200"
+                        : "bg-white/80 text-gray-700"
+                    }`}
+                  >
                     {project.category}
                   </span>
                 </div>
@@ -227,17 +314,21 @@ const Projects = () => {
                   <h3 className="text-xl font-bold mb-1 group-hover:text-purple-600 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className={`text-sm font-medium ${
-                    darkMode ? "text-purple-400" : "text-purple-600"
-                  }`}>
+                  <p
+                    className={`text-sm font-medium ${
+                      darkMode ? "text-purple-400" : "text-purple-600"
+                    }`}
+                  >
                     {project.subtitle}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className={`text-sm leading-relaxed mb-4 ${
-                  darkMode ? "text-gray-300" : "text-gray-600"
-                }`}>
+                <p
+                  className={`text-sm leading-relaxed mb-4 ${
+                    darkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
                   {project.description}
                 </p>
 
@@ -257,9 +348,13 @@ const Projects = () => {
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className={`px-2 py-1 text-xs rounded-md ${
-                        darkMode ? "bg-slate-700 text-gray-400" : "bg-gray-100 text-gray-500"
-                      }`}>
+                      <span
+                        className={`px-2 py-1 text-xs rounded-md ${
+                          darkMode
+                            ? "bg-slate-700 text-gray-400"
+                            : "bg-gray-100 text-gray-500"
+                        }`}
+                      >
                         +{project.technologies.length - 3} more
                       </span>
                     )}
@@ -267,12 +362,18 @@ const Projects = () => {
                 </div>
 
                 {/* Key Features - Expandable */}
-                <div className={`transition-all duration-300 overflow-hidden ${
-                  hoveredProject === project.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}>
-                  <div className={`pt-4 border-t ${
-                    darkMode ? "border-slate-600" : "border-gray-200"
-                  }`}>
+                <div
+                  className={`transition-all duration-300 overflow-hidden ${
+                    hoveredProject === project.id
+                      ? "max-h-96 opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div
+                    className={`pt-4 border-t ${
+                      darkMode ? "border-slate-600" : "border-gray-200"
+                    }`}
+                  >
                     <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
                       <CodeIcon />
                       Key Features
@@ -285,9 +386,11 @@ const Projects = () => {
                             darkMode ? "text-gray-400" : "text-gray-600"
                           }`}
                         >
-                          <div className={`w-1 h-1 rounded-full mt-2 flex-shrink-0 ${
-                            darkMode ? "bg-purple-400" : "bg-purple-500"
-                          }`}></div>
+                          <div
+                            className={`w-1 h-1 rounded-full mt-2 flex-shrink-0 ${
+                              darkMode ? "bg-purple-400" : "bg-purple-500"
+                            }`}
+                          ></div>
                           <span>{detail}</span>
                         </li>
                       ))}
@@ -302,13 +405,19 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center gap-1 text-sm font-medium transition-colors hover:underline ${
-                      darkMode ? "text-purple-400 hover:text-purple-300" : "text-purple-600 hover:text-purple-700"
+                      darkMode
+                        ? "text-purple-400 hover:text-purple-300"
+                        : "text-purple-600 hover:text-purple-700"
                     }`}
                   >
                     <span>View Project</span>
                     <ExternalLinkIcon />
                   </a>
-                  <div className={`text-xs ${darkMode ? "text-gray-500" : "text-gray-400"}`}>
+                  <div
+                    className={`text-xs ${
+                      darkMode ? "text-gray-500" : "text-gray-400"
+                    }`}
+                  >
                     Project #{index + 1}
                   </div>
                 </div>
@@ -318,12 +427,16 @@ const Projects = () => {
         </div>
 
         {/* Footer CTA */}
-        <div className={`text-center mt-20 p-8 rounded-2xl ${
-          darkMode 
-            ? "bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-slate-600/50" 
-            : "bg-gradient-to-r from-gray-50 to-white border border-gray-200/50"
-        }`}>
-          <h3 className="text-xl font-bold mb-2">Interested in Collaboration?</h3>
+        <div
+          className={`text-center mt-20 p-8 rounded-2xl ${
+            darkMode
+              ? "bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-slate-600/50"
+              : "bg-gradient-to-r from-gray-50 to-white border border-gray-200/50"
+          }`}
+        >
+          <h3 className="text-xl font-bold mb-2">
+            Interested in Collaboration?
+          </h3>
           <p className={`mb-4 ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
             Let's work together to bring your ideas to life
           </p>
