@@ -118,7 +118,7 @@ const About = () => {
             <motion.div
               className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"
               initial={{ width: 0 }}
-              animate={isInView ? { width: 96 } : { width: 0 }}
+              animate={isInView ? { width: 100 } : { width: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             />
           </motion.div>
@@ -128,12 +128,18 @@ const About = () => {
             {/* Story Section */}
             <motion.div variants={itemVariants} className="space-y-6">
               <h3
-                className={`text-2xl lg:text-3xl font-bold mb-6 ${
+                className={`text-2xl lg:text-3xl font-bold mb-6 flex justify-center ${
                   darkMode ? "text-white" : "text-gray-900"
                 }`}
               >
                 My Story
               </h3>
+               <motion.div
+              className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"
+              initial={{ width: 0 }}
+              animate={isInView ? { width: 96 } : { width: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            />
               <div className="space-y-4">
                 <p
                   className={`text-lg leading-relaxed ${
@@ -167,28 +173,34 @@ const About = () => {
             </motion.div>
 
             {/* Stats Section */}
-            <motion.div variants={itemVariants} className="space-y-6">
+            <motion.div variants={itemVariants} className="space-y-6 ">
               <h3
-                className={`text-2xl lg:text-3xl font-bold mb-6 ${
+                className={`text-2xl lg:text-3xl font-bold mb-6 flex justify-center ${
                   darkMode ? "text-white" : "text-gray-900"
                 }`}
               >
                 By the Numbers
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+               <motion.div
+              className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"
+              initial={{ width: 0 }}
+              animate={isInView ? { width: 96 } : { width: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            />
+              <div className="grid grid-cols-2 gap-2 mt-12">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     variants={cardVariants}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className={`p-6 rounded-xl shadow-lg transition-all duration-300 ${
+                    className={`p-6 transition-all duration-300 ${
                       darkMode
-                        ? "bg-gray-800 border border-gray-700"
-                        : "bg-white border border-gray-200"
+                        ?""
+                        : "bg-white "
                     }`}
                   >
                     <div className="flex flex-col items-center text-center">
-                      <div className="p-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white mb-3">
+                      <div className="p-3 rounded-full bg-[#4ca1af] text-white mb-3">
                         <stat.icon size={20} />
                       </div>
                       <div
@@ -213,7 +225,7 @@ const About = () => {
           </div>
 
           {/* Values Section */}
-          <motion.div variants={itemVariants} className="mb-16">
+          {/* <motion.div variants={itemVariants} className="mb-16">
             <h3
               className={`text-2xl lg:text-3xl font-bold text-center mb-12 ${
                 darkMode ? "text-white" : "text-gray-900"
@@ -259,7 +271,7 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Call to Action */}
           <motion.div
