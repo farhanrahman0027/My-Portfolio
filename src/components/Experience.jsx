@@ -1,5 +1,6 @@
 import React from "react";
-import { useDarkMode } from "../DarkModeContext"; // Import the dark mode context
+import { useDarkMode } from "../DarkModeContext";
+
 const experiences = [
   {
     id: 1,
@@ -25,7 +26,7 @@ const experiences = [
 ];
 
 const Experience = () => {
- const { darkMode } = useDarkMode();
+  const { darkMode } = useDarkMode();
 
   // Custom icon components using SVG
   const BriefcaseIcon = () => (
@@ -61,87 +62,86 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className={`px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 w-full transition-all duration-500 ${
+      className={`px-4 sm:px-6 md:px-8 lg:px-12 py-16 w-full transition-all duration-500 ${
         darkMode 
           ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100" 
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
       }`}
     >
-      <div className="max-w-7xl ">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-lg">
-            <div className="w-8 h-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section - Compact */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white shadow-lg">
+            <div className="w-6 h-6 ">
               <BriefcaseIcon />
             </div>
           </div>
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up transition-colors duration-300  ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-3 transition-colors duration-300 ${
             darkMode ? 'text-white' : 'text-[#2C3E50]'
           }`}>
             Professional <span className="bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] bg-clip-text text-transparent">Experience</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] mx-auto rounded-full"></div>
         </div>
 
-        {/* Experience Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className={`absolute left-8 top-0 bottom-0 w-0.5 hidden md:block ${
-            darkMode ? "bg-gradient-to-b from-indigo-500 to-blue-500" : "bg-gradient-to-b from-indigo-400 to-blue-400"
-          }`}></div>
+        {/* Experience Cards - Compact Grid */}
+        <div className="space-y-6">
+          {experiences.map((exp, index) => (
+            <div key={exp.id} className="relative group">
+              {/* Experience Card - Smaller */}
+              <div className={`transform transition-all duration-300 hover:scale-[1.02] ${
+                darkMode
+                  ? "bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600/50 hover:border-indigo-500/50 shadow-lg hover:shadow-xl"
+                  : "bg-white border border-gray-200/50 hover:border-indigo-400/50 shadow-md hover:shadow-lg"
+              } rounded-xl p-6 relative overflow-hidden`}>
+                
+                {/* Background Pattern */}
+                <div className={`absolute top-0 right-0 w-24 h-24 opacity-5 ${
+                  darkMode ? "text-white" : "text-gray-900"
+                }`}>
+                  <BriefcaseIcon />
+                </div>
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div key={exp.id} className="relative group">
-                {/* Timeline Dot */}
-                <div className={`absolute left-6 w-4 h-4 rounded-full border-4 hidden md:block z-10 ${
-                  darkMode 
-                    ? "bg-indigo-500 border-slate-800 shadow-lg" 
-                    : "bg-indigo-500 border-white shadow-md"
-                }`}></div>
-
-                {/* Experience Card */}
-                <div className={`ml-0 md:ml-20 transform transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${
-                  darkMode
-                    ? "bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600/50 hover:border-indigo-500/50 shadow-xl hover:shadow-2xl"
-                    : "bg-white border border-gray-200/50 hover:border-indigo-400/50 shadow-lg hover:shadow-xl"
-                } rounded-2xl p-8`}>
-                  
-                  {/* Card Header */}
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3 flex-wrap">
-                        <h3 className="text-2xl lg:text-3xl font-bold leading-tight">
+                {/* Card Content */}
+                <div className="relative z-10">
+                  {/* Header Row - Compact */}
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-5">
+                    {/* Left Section */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-xl font-bold leading-tight flex-1">
                           {exp.role}
                         </h3>
-                        <span className="px-3 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400 rounded-full">
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                          darkMode ? "bg-indigo-900/30 text-indigo-400" : "bg-indigo-100 text-indigo-800"
+                        }`}>
                           {exp.type}
                         </span>
                       </div>
                       
-                      <div className="space-y-2 mb-4">
-                        <p className={`text-lg font-semibold ${
+                      <div className="mb-3">
+                        <p className={`text-base font-semibold ${
                           darkMode ? "text-blue-400" : "text-indigo-600"
                         }`}>
                           {exp.company}
                         </p>
-                        <p className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                        <p className={`text-xs ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
                           {exp.companyShort}
                         </p>
                       </div>
 
-                      {/* Meta Information */}
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <div className={`w-4 h-4 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
+                      {/* Meta Information - Horizontal */}
+                      <div className="flex flex-wrap gap-3 text-sm">
+                        <div className="flex items-center gap-1">
+                          <div className={`w-3 h-3 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                             <LocationIcon />
                           </div>
                           <span className={darkMode ? "text-gray-300" : "text-gray-600"}>
                             {exp.location}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <div className={`w-4 h-4 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
+                        <div className="flex items-center gap-1">
+                          <div className={`w-3 h-3 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                             <CalendarIcon />
                           </div>
                           <span className={darkMode ? "text-gray-300" : "text-gray-600"}>
@@ -151,34 +151,34 @@ const Experience = () => {
                       </div>
                     </div>
 
-                    {/* Experience Icon */}
-                    <div className={`mt-4 lg:mt-0 lg:ml-6 p-4 rounded-xl ${
+                    {/* Right Section - Company Icon */}
+                    <div className={`p-3 rounded-lg ${
                       darkMode 
                         ? "bg-indigo-500/10 border border-indigo-500/30" 
                         : "bg-indigo-50 border border-indigo-200"
-                    }`}>
-                      <div className={`w-12 h-12 ${darkMode ? "text-indigo-400" : "text-indigo-600"}`}>
+                    } flex-shrink-0`}>
+                      <div className={`w-8 h-8 ${darkMode ? "text-indigo-400" : "text-indigo-600"}`}>
                         <BriefcaseIcon />
                       </div>
                     </div>
                   </div>
 
-                  {/* Technologies Used */}
-                  <div className="mb-8">
-                    <h4 className="text-lg font-semibold flex items-center gap-2 mb-4">
-                      <div className={`w-2 h-2 rounded-full ${
+                  {/* Technologies - Compact */}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold mb-2 flex items-center gap-1">
+                      <div className={`w-1.5 h-1.5 rounded-full ${
                         darkMode ? "bg-indigo-400" : "bg-indigo-500"
                       }`}></div>
-                      Technologies & Tools
+                      Technologies
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                       {exp.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className={`px-3 py-1 text-sm font-medium rounded-lg transition-all duration-200 hover:scale-105 ${
+                          className={`px-2 py-1 text-xs font-medium rounded-md transition-all duration-200 hover:scale-105 ${
                             darkMode 
-                              ? "bg-slate-700 text-slate-200 border border-slate-600/50 hover:border-indigo-500/50" 
-                              : "bg-gray-100 text-gray-700 border border-gray-200 hover:border-indigo-400/50"
+                              ? "bg-slate-700 text-slate-200 border border-slate-600/50" 
+                              : "bg-gray-100 text-gray-700 border border-gray-200"
                           }`}
                         >
                           {tech}
@@ -187,76 +187,79 @@ const Experience = () => {
                     </div>
                   </div>
 
-                  {/* Key Responsibilities */}
-                  <div className="mb-8">
-                    <h4 className="text-lg font-semibold flex items-center gap-2 mb-4">
-                      <div className={`w-2 h-2 rounded-full ${
-                        darkMode ? "bg-indigo-400" : "bg-indigo-500"
-                      }`}></div>
-                      Key Responsibilities
-                    </h4>
-                    <div className="grid gap-3">
-                      {exp.description.map((point, i) => (
-                        <div
-                          key={i}
-                          className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-200 hover:scale-[1.01] ${
-                            darkMode 
-                              ? "bg-slate-700/50 hover:bg-slate-700/70 border border-slate-600/30" 
-                              : "bg-gray-50 hover:bg-gray-100 border border-gray-200/50"
-                          }`}
-                        >
-                          <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
-                            darkMode ? "bg-indigo-400" : "bg-indigo-500"
-                          }`}></div>
-                          <p className="text-sm lg:text-base leading-relaxed">
-                            {point}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Key Achievements */}
-                  <div>
-                    <h4 className="text-lg font-semibold flex items-center gap-2 mb-4">
-                      <div className={`w-4 h-4 ${darkMode ? "text-yellow-400" : "text-yellow-500"}`}>
-                        <AchievementIcon />
-                      </div>
-                      Key Achievements
-                    </h4>
-                    <div className="grid gap-3">
-                      {exp.achievements.map((achievement, i) => (
-                        <div
-                          key={i}
-                          className={`flex items-start gap-3 p-4 rounded-lg transition-all duration-200 hover:scale-[1.01] ${
-                            darkMode 
-                              ? "bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-700/30 hover:border-yellow-600/50" 
-                              : "bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200/50 hover:border-yellow-400/50"
-                          }`}
-                        >
-                          <div className={`w-5 h-5 flex-shrink-0 mt-0.5 ${darkMode ? "text-yellow-400" : "text-yellow-500"}`}>
-                            <TechIcon />
+                  {/* Two Column Layout for Responsibilities and Achievements */}
+                  <div className="grid lg:grid-cols-2 gap-4">
+                    {/* Key Responsibilities - Compact */}
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2 flex items-center gap-1">
+                        <div className={`w-1.5 h-1.5 rounded-full ${
+                          darkMode ? "bg-indigo-400" : "bg-indigo-500"
+                        }`}></div>
+                        Responsibilities
+                      </h4>
+                      <div className="space-y-2">
+                        {exp.description.slice(0, 2).map((point, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-start gap-2 p-2 rounded-md text-sm ${
+                              darkMode 
+                                ? "bg-slate-700/30 border border-slate-600/20" 
+                                : "bg-gray-50 border border-gray-200/50"
+                            }`}
+                          >
+                            <div className={`w-1 h-1 rounded-full mt-2 flex-shrink-0 ${
+                              darkMode ? "bg-indigo-400" : "bg-indigo-500"
+                            }`}></div>
+                            <p className="leading-relaxed">
+                              {point}
+                            </p>
                           </div>
-                          <p className="text-sm lg:text-base leading-relaxed font-medium">
-                            {achievement}
-                          </p>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Key Achievements - Compact */}
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2 flex items-center gap-1">
+                        <div className={`w-3 h-3 ${darkMode ? "text-yellow-400" : "text-yellow-500"}`}>
+                          <AchievementIcon />
                         </div>
-                      ))}
+                        Achievements
+                      </h4>
+                      <div className="space-y-2">
+                        {exp.achievements.slice(0, 2).map((achievement, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-start gap-2 p-2 rounded-md text-sm ${
+                              darkMode 
+                                ? "bg-yellow-900/20 border border-yellow-700/30" 
+                                : "bg-yellow-50 border border-yellow-200/50"
+                            }`}
+                          >
+                            <div className={`w-3 h-3 flex-shrink-0 mt-0.5 ${darkMode ? "text-yellow-400" : "text-yellow-500"}`}>
+                              <TechIcon />
+                            </div>
+                            <p className="leading-relaxed font-medium">
+                              {achievement}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
-        {/* Call to Action */}
-        <div className={`text-center mt-16 p-8 rounded-xl ${
+        {/* Footer - Compact */}
+        <div className={`text-center mt-8 p-6 rounded-lg ${
           darkMode 
             ? "bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-slate-600/50" 
             : "bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200/50"
         }`}>
-          <h3 className="text-xl font-semibold mb-2">Ready for New Challenges</h3>
+          <h3 className="text-lg font-semibold mb-2">Ready for New Challenges</h3>
           <p className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
             Passionate about creating innovative solutions and contributing to impactful projects
           </p>
