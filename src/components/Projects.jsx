@@ -221,7 +221,7 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg">
+          <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white shadow-lg">
             <RocketIcon />
           </div>
           <h2
