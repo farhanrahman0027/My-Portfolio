@@ -11,7 +11,7 @@ import {
 import { SiLeetcode } from "react-icons/si";
 import { motion } from "framer-motion";
 import profile from "../assets/profile-pic.jpeg";
-import resume from "../assets/farhan_resume_2025.pdf";
+import resume from "../assets/Resume.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
 const UpperSection = () => {
