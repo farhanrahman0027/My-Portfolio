@@ -12,10 +12,10 @@ const Navbar = () => {
     { name: "Home", href: "#home", id: "home" },
     { name: "About", href: "#about", id: "about" },
     { name: "Education", href: "#education", id: "education" },
-    { name: "Experience", href: "#experience", id: "experience" },
+    { name: "Experience", href: "#experience", id:"experience" },
     { name: "Projects", href: "#projects", id: "projects" },
     { name: "Skills", href: "#skills", id: "skills" },
-    { name: "Contact", href: "#sontact", id: "contact" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
 
   // Smooth scroll function
