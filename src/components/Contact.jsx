@@ -13,7 +13,7 @@ import {
 import { useDarkMode } from "../DarkModeContext";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
@@ -21,9 +21,9 @@ const Contact = () => {
   });
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
-  
+
   const { darkMode } = useDarkMode();
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -35,14 +35,6 @@ const Contact = () => {
       return "Please enter a valid email";
     if (!formData.message.trim()) return "Message is required";
     return null;
-  };
-
-  // EmailJS Configuration - Replace these with your actual values
-  const EMAILJS_CONFIG = {
-    SERVICE_ID: 'service_qa1k4ew', // Replace with your EmailJS service ID
-    NOTIFICATION_TEMPLATE_ID: 'template_pxrovri', // Replace with your notification template ID
-    THANKYOU_TEMPLATE_ID: 'template_z0muc5f', // Replace with your thank you template ID
-    PUBLIC_KEY: 'vtqZQbySk6vjlzXbC' // Replace with your EmailJS public key
   };
 
   const handleSubmit = async (e) => {
@@ -58,75 +50,33 @@ const Contact = () => {
     setStatus({ type: "", message: "" });
 
     try {
-      // Initialize EmailJS (it's safe to call multiple times)
-      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-
-      // Prepare template parameters for notification email (to you)
-      const notificationParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        reply_to: formData.email,
-        subject: formData.subject || 'New Contact Form Message',
-        message: formData.message,
-        to_name: 'Farhan Rahman',
-        to_email: 'farhanrahman0027@gmail.com'
-      };
-
-      // Prepare template parameters for thank you email (to user)
-      const thankYouParams = {
-        to_name: formData.name,
-        to_email: formData.email,
-        reply_to: 'farhanrahman0027@gmail.com',
-        subject: formData.subject || 'New Contact Form Message',
-        from_name: 'Farhan Rahman',
-        user_email: formData.email // Alternative parameter name
-      };
-
-      // Send notification email to you
-      console.log('Sending notification email...');
-      await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.NOTIFICATION_TEMPLATE_ID,
-        notificationParams,
-        EMAILJS_CONFIG.PUBLIC_KEY
-      );
-
-      // Send thank you email to user
-      console.log('Sending thank you email...');
-      await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.THANKYOU_TEMPLATE_ID,
-        thankYouParams,
-        EMAILJS_CONFIG.PUBLIC_KEY
-      );
-
-      setStatus({
-        type: "success",
-        message: "Message sent successfully! Check your email for confirmation. I'll get back to you within 24 hours.",
+      const response = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-      setFormData({ name: "", email: "", subject: "", message: "" });
 
-    } catch (error) {
-      console.error('EmailJS Error Details:', error);
-      
-      let errorMessage = "Sorry, there was an error sending your message. ";
-      
-      if (error.text) {
-        // EmailJS specific error
-        errorMessage += `Error: ${error.text}`;
-      } else if (error.status === 400) {
-        errorMessage += "Please check your input and try again.";
-      } else if (error.status === 401) {
-        errorMessage += "Authentication failed. Please contact support.";
-      } else if (error.status === 402) {
-        errorMessage += "Service temporarily unavailable. Please try again later.";
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({
+          type: "success",
+          message:
+            "Message sent successfully! I'll get back to you within 24 hours.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        errorMessage += "Please try again or contact me directly at farhanrahman0027@gmail.com";
+        setStatus({
+          type: "error",
+          message: "Failed to send message. Please try again later.",
+        });
       }
-      
+    } catch (error) {
+      console.error("Error sending email:", error);
       setStatus({
         type: "error",
-        message: errorMessage,
+        message:
+          "An unexpected error occurred. Please try again or contact me directly at farhanrahman0027@gmail.com.",
       });
     }
 
