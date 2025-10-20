@@ -2,13 +2,41 @@ import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
-
+import mongoose from "mongoose";
 // Load environment variables
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+
+// Connect MongoDB
+mongoose.connect("mongodb://127.0.0.1:27017/portfolio", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const visitSchema = new mongoose.Schema({
+  ip: String,
+  timestamp: { type: Date, default: Date.now },
+});
+
+const Visit = mongoose.model("Visit", visitSchema);
+
+// 🟢 Route to increment and return visitor count
+app.post("/api/visit", async (req, res) => {
+  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+  await Visit.create({ ip });
+  const count = await Visit.countDocuments();
+  res.json({ count });
+});
+
+app.get("/api/visits", async (req, res) => {
+  const count = await Visit.countDocuments();
+  res.json({ count });
+});
+
 
 app.post("/send-email", async (req, res) => {
   const { name, email, subject, message } = req.body;
