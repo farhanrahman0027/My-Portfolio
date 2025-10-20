@@ -36,25 +36,32 @@ const Navbar = () => {
   };
 
   // Track active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navLinks.map(link => document.getElementById(link.id));
-      const scrollPosition = window.scrollY + 100; // Offset for navbar
+ useEffect(() => {
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight / 3; // detect near top of viewport
+    const sections = navLinks.map(link => document.getElementById(link.id));
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navLinks[i].id);
+    let currentSection = "home";
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      if (section) {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        if (scrollPosition >= top && scrollPosition < bottom) {
+          currentSection = navLinks[i].id;
           break;
         }
       }
-    };
+    }
+    setActiveSection(currentSection);
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call once to set initial active section
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   // Close mobile menu when clicking outside
   useEffect(() => {
