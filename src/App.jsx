@@ -8,7 +8,7 @@ import UpperSection from "./components/UpperSection";
 import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
-import VisitorCounter from "./Home"
+// import VisitorCounter from "./Home"
 const App = () => {
   const { darkMode } = useDarkMode();
   return (
@@ -23,7 +23,7 @@ const App = () => {
       <Projects />
       <Contact />
 
-       <VisitorCounter />
+       {/* <VisitorCounter /> */}
     </div>
   );
 };
