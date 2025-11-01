@@ -2,37 +2,37 @@ import React from "react";
 import { useDarkMode } from "../DarkModeContext";
 
 const experiences = [
-//   {
-//   id: 1,
-//   role: "Full Stack Web Developer with AI Intern",
-//   company: "Corporate Web Solutions",
-//   companyShort: "Next Gen Web Solutions",
-//   location: "Remote",
-//   duration: "February 2025 - August 2025",
-//   type: "Internship",
-//   technologies: [
-//     "React.js",
-//     "Node.js",
-//     "Express.js",
-//     "MongoDB",
-//     "HTML5",
-//     "CSS3",
-//     "JavaScript",
-//     "AI Integration"
-//   ],
-//   description: [
-//     "Worked on developing full-stack web applications with AI-driven features using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
-//     "Designed and implemented responsive, user-friendly interfaces with React.js and Tailwind CSS to enhance usability and performance.",
-//     "Developed and consumed RESTful APIs for seamless frontend-backend communication and data management.",
-//     "Integrated AI functionalities into web modules to automate processes and improve user experience.",
-//     "Collaborated in an agile environment, participating in regular code reviews and version control with Git and GitHub."
-//   ],
-//   achievements: [
-//     "Successfully completed all assigned projects and modules within deadlines with 'Outstanding' performance rating.",
-//     "Earned 4 credits for exceptional contribution and completion of AI-integrated web development tasks.",
-//     "Enhanced system efficiency and scalability by implementing optimized backend logic and clean frontend architecture."
-//   ]
-// }
+  {
+  id: 1,
+  role: "Full Stack Web Developer Intern",
+  company: "Corporate Web Solutions",
+  companyShort: "Next Gen Web Solutions",
+  location: "Remote",
+  duration: "February 2025 - August 2025",
+  type: "Internship",
+  technologies: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "AI Integration"
+  ],
+  description: [
+    "Worked on developing full-stack web applications with AI-driven features using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
+    "Designed and implemented responsive, user-friendly interfaces with React.js and Tailwind CSS to enhance usability and performance.",
+    "Developed and consumed RESTful APIs for seamless frontend-backend communication and data management.",
+    "Integrated AI functionalities into web modules to automate processes and improve user experience.",
+    "Collaborated in an agile environment, participating in regular code reviews and version control with Git and GitHub."
+  ],
+  achievements: [
+    "Successfully completed all assigned projects and modules within deadlines with 'Outstanding' performance rating.",
+    "Earned 4 credits for exceptional contribution and completion of AI-integrated web development tasks.",
+    "Enhanced system efficiency and scalability by implementing optimized backend logic and clean frontend architecture."
+  ]
+}
 ,
   {
     id: 1,

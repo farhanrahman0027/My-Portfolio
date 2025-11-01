@@ -7,10 +7,12 @@ const VisitorCounter = () => {
   useEffect(() => {
   const fetchVisits = async () => {
     try {
-      const res = await axios.post("https://devfarhan.vercel.app/");
+      const res = await axios.post("https://devfarhan.vercel.app/api/visit");
+
+      console.log("Response:", res.data);
       setVisits(res.data.count);
     } catch (error) {
-      console.error("Error fetching visit count:", error);
+      console.error("Error fetching count:", error);
     }
   };
   fetchVisits();
