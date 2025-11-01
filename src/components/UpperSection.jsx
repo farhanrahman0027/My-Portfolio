@@ -7,10 +7,17 @@ import {
   FaEnvelope,
   FaDownload,
   FaFileAlt,
+  FaHtml5,
+  FaNodeJs,
+  FaPython,
+  FaJava,
+  FaReact,
+  FaJs,
+  FaCss3Alt
 } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { SiLeetcode, SiTailwindcss, SiNextdotjs, SiMongodb } from "react-icons/si";
 import { motion } from "framer-motion";
-import profile from "../assets/profile-pic.jpeg";
+import profile from "../assets/farhan img.jpeg";
 import resume from "../assets/Resume.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
@@ -33,7 +40,7 @@ const UpperSection = () => {
     "TypeScript Developer",
     "Node.js Backend Developer",
     "Database Enthusiast",
-    
+
     "Agile Practitioner",
     "DevOps Enthusiast",
     "Software Engineer",
@@ -46,7 +53,7 @@ const UpperSection = () => {
     "Tech Creator",
     "Tech Visionary",
     "Tech Leader",
-    
+
 
   ];
 
@@ -111,25 +118,22 @@ const UpperSection = () => {
   return (
     <section id="home" className="relative mt-12">
       <div
-        className={`min-h-screen flex items-center relative py-20 transition-colors duration-300 ${
-          darkMode
-            ? "bg-gradient-to-br from-gray-900 to-gray-800 text-white"
-            : "bg-gradient-to-br from-gray-50 to-white text-gray-900"
-        }`}
+        className={`min-h-screen flex items-center relative py-20 transition-colors duration-300 ${darkMode
+          ? "bg-gradient-to-br from-gray-900 to-gray-800 text-white"
+          : "bg-gradient-to-br from-gray-50 to-white text-gray-900"
+          }`}
       >
         {/* Simple background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className={`absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-3xl opacity-10 ${
-              darkMode ? "bg-[#2c3e50]" : "bg-[#4ca1af]"
-            }`}
+            className={`absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-3xl opacity-10 ${darkMode ? "bg-[#2c3e50]" : "bg-[#4ca1af]"
+              }`}
           />
           <div
-            className={`absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full blur-3xl opacity-10 ${
-              darkMode ? "bg-[#4ca1af]" : "bg-[#2c3e50]"
-            }`}
+            className={`absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full blur-3xl opacity-10 ${darkMode ? "bg-[#4ca1af]" : "bg-[#2c3e50]"
+              }`}
           />
-        </div>
+        </div> */}
 
         <motion.div
           variants={staggerContainer}
@@ -139,47 +143,68 @@ const UpperSection = () => {
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
             {/* Profile Section */}
-            <motion.div
-              variants={fadeInUp}
-              className="w-full lg:w-2/5 order-2 lg:order-1"
-            >
-              <div className="relative">
-                <motion.img
-                  src={profile}
-                  alt="Farhanur Rahman"
-                  className="p-12 rounded-full w-76 h-72 lg:w-80 lg:h-80 object-cover mx-auto shadow-lg"
-                  {...floatAnimation} // attach floating animation
-                  whileHover={{
-                    scale: 1.05,
-                    rotate: 1,
-                    transition: { duration: 0.3 },
-                  }}
-                />
+            <div className="relative">
+              <motion.img
+                src={profile}
+                alt="Farhanur Rahman"
+                className="p-12 rounded-full w-76 h-72 lg:w-80 lg:h-80 object-cover mx-auto  relative z-10"
+                
+              />
 
-                {/* Simple floating icons */}
+              {/* Floating background tech icons */}
+
+              {[
+                { icon: <FaHtml5 className="text-orange-500" />, top: "10%", left: "5%" },
+                { icon: <FaCss3Alt className="text-blue-500" />, top: "10%", right: "10%" },
+                { icon: <FaJs className="text-yellow-400" />, bottom: "45%", left: "2%" },
+                { icon: <FaReact className="text-cyan-400" />, bottom: "20%", left: "5%" },
+                { icon: <SiNextdotjs className="text-gray-800 dark:text-gray-200" />, top: "45%", right: "5%" },
+                { icon: <SiTailwindcss className="text-sky-400" />, bottom: "5%", left: "30%" },
+                { icon: <FaJava className="text-red-500" />, top: "5%", left: "30%" },
+                { icon: <FaPython className="text-yellow-500" />, bottom: "5%", right: "25%" },
+                { icon: <SiMongodb className="text-green-500" />, top: "5%", right: "40%" },
+                { icon: <FaNodeJs className="text-green-600" />, bottom: "15%", right: "5%" },
+              ].map((item, index) => (
                 <motion.div
-                  className="absolute -top-4 -right-4 p-3 rounded-full bg-[#4ca1af] text-white shadow-lg"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  key={index}
+                  className="absolute text-2xl opacity-70 select-none"
+                  style={{ top: item.top, left: item.left, right: item.right, bottom: item.bottom }}
+                  animate={{
+                    y: [0, -8, 0],
+                    x: [0, 4, 0],
+                  }}
+                  transition={{
+                    duration: 4 + index,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
-                  <FaCode size={16} />
+                  {item.icon}
                 </motion.div>
-                <motion.div
-                  className="absolute -bottom-4 -left-4 p-3 rounded-full bg-[#2c3e50] text-white shadow-lg"
-                  whileHover={{ scale: 1.2, rotate: -10 }}
-                >
-                  <FaRocket size={16} />
-                </motion.div>
-              </div>
-            </motion.div>
+              ))}
+
+              <motion.div
+                className="absolute -top-4 -right-4 p-3 rounded-full bg-[#4ca1af] text-white shadow-lg"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+              >
+                <FaCode size={16} />
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-4 -left-4 p-3 rounded-full bg-[#2c3e50] text-white shadow-lg"
+                whileHover={{ scale: 1.2, rotate: -10 }}
+              >
+                <FaRocket size={16} />
+              </motion.div>
+            </div>
+
 
             {/* Content Section */}
             <div className="w-full lg:w-3/5 text-center lg:text-left order-1 lg:order-2">
               {/* Greeting */}
               <motion.div variants={fadeInUp} className="mb-4">
                 <span
-                  className={`text-xl font-medium ${
-                    darkMode ? "text-[#4ca1af]" : "text-[#2c3e50]"
-                  }`}
+                  className={`text-xl font-medium ${darkMode ? "text-[#4ca1af]" : "text-[#2c3e50]"
+                    }`}
                 >
                   Hello, I'm
                 </span>
@@ -209,9 +234,8 @@ const UpperSection = () => {
               {/* Description */}
               <motion.p
                 variants={fadeInUp}
-                className={`text-lg mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 ${
-                  darkMode ? "text-gray-300" : "text-gray-600"
-                }`}
+                className={`text-lg mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 ${darkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
               >
                 A goal-oriented software developer with experience in building
                 web applications using modern technologies like React, Next.js,
@@ -250,11 +274,10 @@ const UpperSection = () => {
                   <a
                     key={label}
                     href={href}
-                    className={`p-3 rounded-full transition-all duration-200 hover:scale-105 ${
-                      darkMode
-                        ? "bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white"
-                        : "bg-white text-gray-600 hover:bg-blue-600 hover:text-white shadow-md"
-                    }`}
+                    className={`p-3 rounded-full transition-all duration-200 hover:scale-105 ${darkMode
+                      ? "bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white"
+                      : "bg-white text-gray-600 hover:bg-blue-600 hover:text-white shadow-md"
+                      }`}
                     aria-label={label}
                   >
                     <Icon size={20} />
@@ -265,11 +288,10 @@ const UpperSection = () => {
                 <a
                   href={resume}
                   download="Farhan_Resume"
-                  className={`flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-200 hover:scale-105 ${
-                    darkMode
-                      ? "bg-gray-800 text-gray-300 hover:bg-gradient-to-r hover:from-[#2c3e50] hover:to-[#4ca1af] hover:text-white border border-gray-700"
-                      : "bg-white text-gray-700 hover:bg-gradient-to-r hover:from-[#2c3e50] hover:to-[#4ca1af] hover:text-white shadow-md"
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-200 hover:scale-105 ${darkMode
+                    ? "bg-gray-800 text-gray-300 hover:bg-gradient-to-r hover:from-[#2c3e50] hover:to-[#4ca1af] hover:text-white border border-gray-700"
+                    : "bg-white text-gray-700 hover:bg-gradient-to-r hover:from-[#2c3e50] hover:to-[#4ca1af] hover:text-white shadow-md"
+                    }`}
                 >
                   <FaFileAlt size={16} />
                   <span className="font-medium text-sm">Resume</span>
@@ -290,11 +312,10 @@ const UpperSection = () => {
                 </button>
 
                 <button
-                  className={`px-8 py-3 font-medium rounded-full cursor-pointer transition-all duration-200 hover:scale-105 ${
-                    darkMode
-                      ? "border-2 border-gray-600 text-gray-300 hover:border-[#4ca1af] hover:text-[#4ca1af]"
-                      : "border-2 border-gray-300 text-gray-700 hover:border-[#2c3e50] hover:text-[#2c3e50]"
-                  }`}
+                  className={`px-8 py-3 font-medium rounded-full cursor-pointer transition-all duration-200 hover:scale-105 ${darkMode
+                    ? "border-2 border-gray-600 text-gray-300 hover:border-[#4ca1af] hover:text-[#4ca1af]"
+                    : "border-2 border-gray-300 text-gray-700 hover:border-[#2c3e50] hover:text-[#2c3e50]"
+                    }`}
                   onClick={() => handleScroll("contact")}
                 >
                   Get In Touch
