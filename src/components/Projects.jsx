@@ -212,7 +212,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className={`px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 w-full transition-all duration-500 ${
+      className={`px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 w-full transition-all duration-500 ${
         darkMode
           ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100"
           : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900"
@@ -221,7 +221,7 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white shadow-lg">
+          <div className="inline-flex items-center justify-center w-14 h-14 mb-6 rounded-full bg-gradient-to-r from-[#2c3e50] to-[#4ca1af] text-white shadow-lg">
             <RocketIcon />
           </div>
           <h2
