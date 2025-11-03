@@ -35,9 +35,41 @@ const experiences = [
 }
 
 ,
+{
+  id: 2,
+  role: "Full Stack Development Intern",
+  company: "Corporate Web Solutions",
+  companyShort: "Corporate Web Solutions",
+  location: "Remote",
+  duration: "September 2024 - November 2024",
+  type: "Internship",
+  technologies: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "TypeScript",
+    "Tailwind CSS",
+    "JavaScript",
+    "AI Integration"
+  ],
+  description: [
+    "Developed and maintained AI-integrated full-stack web applications using the MERN stack.",
+    "Designed responsive user interfaces with React.js and Tailwind CSS, ensuring seamless user experience.",
+    "Implemented backend APIs and optimized database interactions using Node.js, Express.js, and MongoDB.",
+    "Collaborated in an agile environment, participating in code reviews and sprint-based development cycles.",
+    "Worked on integrating AI features to enhance automation and improve application functionality."
+  ],
+  achievements: [
+    "Delivered key project modules ahead of schedule with optimized performance and clean code structure.",
+    "Improved backend scalability and reduced API response time by 35% through query optimization.",
+    "Praised for technical efficiency, adaptability, and proactive contribution in cross-functional collaboration."
+  ]
+}
+,
   {
-    id: 2,
-    role: "Web Developer Intern",
+    id: 3,
+    role: "Web Development Intern",
     company: "Ministry of Electronics & Information Technology",
     companyShort: "MeitY, Govt. of India",
     location: "Hyderabad, MANUU",
