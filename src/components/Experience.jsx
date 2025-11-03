@@ -2,13 +2,13 @@ import React from "react";
 import { useDarkMode } from "../DarkModeContext";
 
 const experiences = [
-  {
+ {
   id: 1,
-  role: "Full Stack Web Developer Intern",
-  company: "Corporate Web Solutions",
-  companyShort: "Next Gen Web Solutions",
-  location: "Remote",
-  duration: "February 2025 - August 2025",
+  role: "Software Development Intern",
+  company: "Intment Technologies Pvt. Ltd.",
+  companyShort: "Intment Technologies",
+  location: "Hyderabad",
+  duration: "March 2025 - August 2025",
   type: "Internship",
   technologies: [
     "React.js",
@@ -18,21 +18,22 @@ const experiences = [
     "HTML5",
     "CSS3",
     "JavaScript",
-    "AI Integration"
+    "Web Design"
   ],
   description: [
-    "Worked on developing full-stack web applications with AI-driven features using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
-    "Designed and implemented responsive, user-friendly interfaces with React.js and Tailwind CSS to enhance usability and performance.",
-    "Developed and consumed RESTful APIs for seamless frontend-backend communication and data management.",
-    "Integrated AI functionalities into web modules to automate processes and improve user experience.",
-    "Collaborated in an agile environment, participating in regular code reviews and version control with Git and GitHub."
+    "Contributed to the development and maintenance of web applications using modern frontend and backend technologies.",
+    "Designed and implemented responsive, interactive user interfaces using HTML, CSS, and React.js.",
+    "Assisted in building and testing RESTful APIs with Node.js and Express.js for efficient data handling.",
+    "Collaborated with the software development team to deliver reliable, performance-optimized solutions.",
+    "Gained hands-on experience in web design principles, client interaction, and agile development processes."
   ],
   achievements: [
-    "Successfully completed all assigned projects and modules within deadlines with 'Outstanding' performance rating.",
-    "Earned 4 credits for exceptional contribution and completion of AI-integrated web development tasks.",
-    "Enhanced system efficiency and scalability by implementing optimized backend logic and clean frontend architecture."
+    "Successfully completed all assigned project tasks within deadlines with consistent performance.",
+    "Demonstrated strong technical and problem-solving skills while adapting to new web technologies.",
+    "Appreciated by mentors for being punctual, hardworking, and proactive in learning and collaboration."
   ]
 }
+
 ,
   {
     id: 2,
