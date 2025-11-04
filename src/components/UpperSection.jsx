@@ -142,64 +142,10 @@ const UpperSection = () => {
           className="container mx-auto px-6 lg:px-12 relative"
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
-            {/* Profile Section */}
-            <div className="relative">
-              <motion.img
-                src={profile}
-                alt="Farhanur Rahman"
-                className="p-12 rounded-full w-76 h-72 lg:w-80 lg:h-80 object-cover mx-auto  relative z-10"
-                
-              />
-
-              {/* Floating background tech icons */}
-
-              {[
-                { icon: <FaHtml5 className="text-orange-500" />, top: "10%", left: "5%" },
-                { icon: <FaCss3Alt className="text-blue-500" />, top: "10%", right: "10%" },
-                { icon: <FaJs className="text-yellow-400" />, bottom: "45%", left: "2%" },
-                { icon: <FaReact className="text-cyan-400" />, bottom: "20%", left: "5%" },
-                { icon: <SiNextdotjs className="text-gray-800 dark:text-gray-200" />, top: "45%", right: "5%" },
-                { icon: <SiTailwindcss className="text-sky-400" />, bottom: "5%", left: "30%" },
-                { icon: <FaJava className="text-red-500" />, top: "5%", left: "30%" },
-                { icon: <FaPython className="text-yellow-500" />, bottom: "5%", right: "25%" },
-                { icon: <SiMongodb className="text-green-500" />, top: "5%", right: "40%" },
-                { icon: <FaNodeJs className="text-green-600" />, bottom: "15%", right: "5%" },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="absolute text-2xl opacity-70 select-none"
-                  style={{ top: item.top, left: item.left, right: item.right, bottom: item.bottom }}
-                  animate={{
-                    y: [0, -8, 0],
-                    x: [0, 4, 0],
-                  }}
-                  transition={{
-                    duration: 4 + index,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {item.icon}
-                </motion.div>
-              ))}
-
-              <motion.div
-                className="absolute -top-4 -right-4 p-3 rounded-full bg-[#4ca1af] text-white shadow-lg"
-                whileHover={{ scale: 1.2, rotate: 10 }}
-              >
-                <FaCode size={16} />
-              </motion.div>
-              <motion.div
-                className="absolute -bottom-4 -left-4 p-3 rounded-full bg-[#2c3e50] text-white shadow-lg"
-                whileHover={{ scale: 1.2, rotate: -10 }}
-              >
-                <FaRocket size={16} />
-              </motion.div>
-            </div>
-
+            
 
             {/* Content Section */}
-            <div className="w-full lg:w-3/5 text-center lg:text-left order-1 lg:order-2">
+            <div className="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
               {/* Greeting */}
               <motion.div variants={fadeInUp} className="mb-4">
                 <span
@@ -320,6 +266,61 @@ const UpperSection = () => {
                 >
                   Get In Touch
                 </button>
+              </motion.div>
+            </div>
+
+            {/* Profile Section */}
+            <div className="relative order-1 lg:order-2">
+              <motion.img
+                src={profile}
+                alt="Farhanur Rahman"
+                className="p-12 rounded-full w-76 h-72 lg:w-80 lg:h-80 object-cover mx-auto  relative z-10"
+                
+              />
+
+              {/* Floating background tech icons */}
+
+              {[
+                { icon: <FaHtml5 className="text-orange-500" />, top: "10%", left: "5%" },
+                { icon: <FaCss3Alt className="text-blue-500" />, top: "10%", right: "10%" },
+                { icon: <FaJs className="text-yellow-400" />, bottom: "45%", left: "2%" },
+                { icon: <FaReact className="text-cyan-400" />, bottom: "20%", left: "5%" },
+                { icon: <SiNextdotjs className="text-gray-800 dark:text-gray-200" />, top: "45%", right: "5%" },
+                { icon: <SiTailwindcss className="text-sky-400" />, bottom: "5%", left: "30%" },
+                { icon: <FaJava className="text-red-500" />, top: "5%", left: "30%" },
+                { icon: <FaPython className="text-yellow-500" />, bottom: "5%", right: "25%" },
+                { icon: <SiMongodb className="text-green-500" />, top: "5%", right: "40%" },
+                { icon: <FaNodeJs className="text-green-600" />, bottom: "15%", right: "5%" },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute text-2xl opacity-70 select-none"
+                  style={{ top: item.top, left: item.left, right: item.right, bottom: item.bottom }}
+                  animate={{
+                    y: [0, -8, 0],
+                    x: [0, 4, 0],
+                  }}
+                  transition={{
+                    duration: 4 + index,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  {item.icon}
+                </motion.div>
+              ))}
+
+              <motion.div
+                className="absolute -top-4 -right-4 p-3 rounded-full bg-[#4ca1af] text-white shadow-lg"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+              >
+                <FaCode size={16} />
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-4 -left-4 p-3 rounded-full bg-[#2c3e50] text-white shadow-lg"
+                whileHover={{ scale: 1.2, rotate: -10 }}
+              >
+                <FaRocket size={16} />
               </motion.div>
             </div>
           </div>
