@@ -17,7 +17,7 @@ import {
 } from "react-icons/fa";
 import { SiLeetcode, SiTailwindcss, SiNextdotjs, SiMongodb } from "react-icons/si";
 import { motion } from "framer-motion";
-import profile from "../assets/farhan img.jpeg";
+import profile from "../assets/img.png";
 import resume from "../assets/Resume.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
