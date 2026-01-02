@@ -157,7 +157,7 @@ const Navbar = () => {
             isMobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
           }`}
         >
-          <div className={`py-6 space-y-2 rounded-lg px-4  scroll-auto${
+          <div className={`py-2 space-y-2 rounded-lg px-4  scroll-auto${
             darkMode ? "bg-slate-800/50" : "bg-gray-50/50"
           }`}>
             {navLinks.map((link) => (
